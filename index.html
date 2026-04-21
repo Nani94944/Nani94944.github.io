@@ -1,1163 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jangam Anvesh - Full Stack .NET Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --primary: #1a6bff;
-        --primary-dark: #0047cc;
-        --accent: #00e5c3;
-        --dark: #0d0f14;
-        --dark2: #161a24;
-        --card: #1c2130;
-        --border: rgba(255,255,255,0.07);
-        --text: #e8eaf0;
-        --muted: #8b90a0;
-        --light-bg: #f5f7fb;
-      }
-
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-
-      body {
-        font-family: 'DM Sans', sans-serif;
-        background: var(--dark);
-        color: var(--text);
-        line-height: 1.7;
-        overflow-x: hidden;
-      }
-
-      h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
-
-      a { color: var(--primary); text-decoration: none; transition: color 0.3s; }
-      a:hover { color: var(--accent); }
-
-      .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-
-      /* ── HEADER ── */
-      header {
-        position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-        background: rgba(13,15,20,0.85);
-        backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--border);
-        padding: 16px 0;
-        transition: all 0.3s;
-      }
-
-      .header-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .logo h1 {
-        font-size: 1.5rem;
-        font-weight: 800;
-        letter-spacing: -0.5px;
-      }
-      .logo span { color: var(--accent); }
-
-      nav ul { display: flex; list-style: none; gap: 28px; }
-      nav ul li a { color: var(--muted); font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
-      nav ul li a:hover { color: var(--accent); }
-
-      .mobile-menu-btn { display: none; cursor: pointer; font-size: 1.4rem; color: var(--text); }
-
-      /* ── HERO ── */
-      .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        padding: 120px 0 80px;
-        background: var(--dark);
-      }
-
-      .hero::before {
-        content: '';
-        position: absolute;
-        width: 700px; height: 700px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(26,107,255,0.15) 0%, transparent 70%);
-        top: -100px; right: -200px;
-        pointer-events: none;
-      }
-
-      .hero::after {
-        content: '';
-        position: absolute;
-        width: 400px; height: 400px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(0,229,195,0.08) 0%, transparent 70%);
-        bottom: 0; left: -100px;
-        pointer-events: none;
-      }
-
-      .hero-content { position: relative; z-index: 1; }
-
-      .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(0,229,195,0.1);
-        border: 1px solid rgba(0,229,195,0.25);
-        color: var(--accent);
-        padding: 6px 14px;
-        border-radius: 100px;
-        font-size: 0.82rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        margin-bottom: 24px;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.4rem, 5vw, 4rem);
-        font-weight: 800;
-        line-height: 1.1;
-        letter-spacing: -1px;
-        margin-bottom: 20px;
-      }
-
-      .hero h1 span { color: var(--primary); }
-
-      .hero p {
-        font-size: 1.1rem;
-        color: var(--muted);
-        max-width: 600px;
-        margin-bottom: 36px;
-      }
-
-      .contact-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-        margin-bottom: 40px;
-      }
-
-      .contact-pill {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--card);
-        border: 1px solid var(--border);
-        color: var(--text);
-        padding: 10px 18px;
-        border-radius: 100px;
-        font-size: 0.9rem;
-        transition: all 0.3s;
-      }
-
-      .contact-pill:hover {
-        border-color: var(--primary);
-        color: var(--primary);
-        transform: translateY(-2px);
-      }
-
-      .contact-pill i { color: var(--primary); font-size: 1rem; }
-
-      /* ── SECTION BASE ── */
-      .section { padding: 90px 0; }
-
-      .section-label {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 12px;
-      }
-
-      .section-title {
-        font-size: clamp(1.8rem, 3vw, 2.5rem);
-        font-weight: 800;
-        letter-spacing: -0.5px;
-        margin-bottom: 50px;
-      }
-
-      .section-divider {
-        width: 48px; height: 3px;
-        background: linear-gradient(90deg, var(--primary), var(--accent));
-        border-radius: 2px;
-        margin-bottom: 50px;
-        margin-top: -36px;
-      }
-
-      /* ── ABOUT ── */
-      .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 50px;
-        align-items: start;
-      }
-
-      .about-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 30px;
-        text-align: center;
-      }
-
-      .about-card .profile-icon {
-        width: 100px; height: 100px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--primary), var(--accent));
-        display: flex; align-items: center; justify-content: center;
-        font-size: 2.5rem;
-        margin: 0 auto 20px;
-        color: white;
-        font-family: 'Syne', sans-serif;
-        font-weight: 800;
-      }
-
-      .about-card h3 { font-size: 1.3rem; margin-bottom: 6px; }
-      .about-card p { color: var(--muted); font-size: 0.9rem; }
-
-      .about-stat-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        margin-top: 20px;
-      }
-
-      .about-stat {
-        background: rgba(26,107,255,0.1);
-        border: 1px solid rgba(26,107,255,0.2);
-        border-radius: 10px;
-        padding: 14px;
-        text-align: center;
-      }
-
-      .about-stat strong {
-        display: block;
-        font-family: 'Syne', sans-serif;
-        font-size: 1.6rem;
-        color: var(--primary);
-      }
-
-      .about-stat span { font-size: 0.78rem; color: var(--muted); }
-
-      .about-text p { color: var(--muted); margin-bottom: 18px; font-size: 1rem; }
-
-      .objective-box {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-left: 3px solid var(--accent);
-        border-radius: 10px;
-        padding: 20px 24px;
-        margin-top: 20px;
-        color: var(--muted);
-        font-style: italic;
-        font-size: 0.96rem;
-      }
-
-      /* ── EXPERIENCE ── */
-      .section-alt { background: var(--dark2); }
-
-      .exp-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 32px;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .exp-card::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0;
-        width: 4px; height: 100%;
-        background: linear-gradient(180deg, var(--primary), var(--accent));
-        border-radius: 4px 0 0 4px;
-      }
-
-      .exp-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-bottom: 20px;
-      }
-
-      .exp-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
-      .exp-company { color: var(--primary); font-weight: 600; }
-      .exp-date {
-        background: rgba(0,229,195,0.1);
-        border: 1px solid rgba(0,229,195,0.2);
-        color: var(--accent);
-        padding: 6px 14px;
-        border-radius: 100px;
-        font-size: 0.82rem;
-        font-weight: 600;
-        white-space: nowrap;
-      }
-
-      .exp-project {
-        color: var(--muted);
-        font-size: 0.9rem;
-        margin-bottom: 20px;
-        font-style: italic;
-      }
-
-      .exp-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-      .exp-list li {
-        display: flex;
-        gap: 10px;
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-      .exp-list li::before {
-        content: '▸';
-        color: var(--accent);
-        flex-shrink: 0;
-        margin-top: 2px;
-      }
-
-      .achievements {
-        margin-top: 24px;
-        padding-top: 20px;
-        border-top: 1px solid var(--border);
-      }
-
-      .achievements h4 {
-        color: var(--accent);
-        font-size: 0.85rem;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        margin-bottom: 14px;
-      }
-
-      /* ── SKILLS ── */
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 24px;
-      }
-
-      .skill-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 24px;
-        transition: transform 0.3s, border-color 0.3s;
-      }
-
-      .skill-card:hover {
-        transform: translateY(-4px);
-        border-color: rgba(26,107,255,0.4);
-      }
-
-      .skill-card-header {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 18px;
-      }
-
-      .skill-icon {
-        width: 40px; height: 40px;
-        border-radius: 10px;
-        background: rgba(26,107,255,0.15);
-        display: flex; align-items: center; justify-content: center;
-        color: var(--primary);
-        font-size: 1rem;
-      }
-
-      .skill-card h3 { font-size: 1rem; font-weight: 700; }
-
-      .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-      .tag {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid var(--border);
-        color: var(--muted);
-        padding: 5px 12px;
-        border-radius: 6px;
-        font-size: 0.82rem;
-        font-weight: 500;
-        transition: all 0.25s;
-        cursor: default;
-      }
-      .tag:hover {
-        background: rgba(26,107,255,0.15);
-        border-color: rgba(26,107,255,0.4);
-        color: var(--text);
-      }
-
-      /* ── PROJECTS ── */
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-        gap: 24px;
-      }
-
-      .project-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        overflow: hidden;
-        transition: transform 0.3s, border-color 0.3s;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .project-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(26,107,255,0.4);
-      }
-
-      .project-header {
-        padding: 24px 24px 0;
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-      }
-
-      .project-icon {
-        width: 48px; height: 48px;
-        border-radius: 12px;
-        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-        display: flex; align-items: center; justify-content: center;
-        color: white;
-        font-size: 1.2rem;
-        flex-shrink: 0;
-      }
-
-      .project-meta { flex: 1; }
-      .project-title { font-size: 1.05rem; font-weight: 700; line-height: 1.3; margin-bottom: 4px; }
-      .project-date { color: var(--muted); font-size: 0.8rem; }
-
-      .project-body { padding: 16px 24px 24px; flex: 1; display: flex; flex-direction: column; }
-      .project-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.65; margin-bottom: 18px; flex: 1; }
-
-      .project-techs { display: flex; flex-wrap: wrap; gap: 6px; }
-      .tech-badge {
-        background: rgba(26,107,255,0.12);
-        border: 1px solid rgba(26,107,255,0.25);
-        color: #6ea8fe;
-        padding: 3px 10px;
-        border-radius: 5px;
-        font-size: 0.77rem;
-        font-weight: 600;
-      }
-
-      /* ── EDUCATION ── */
-      .edu-grid { display: flex; flex-direction: column; gap: 20px; max-width: 750px; }
-
-      .edu-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 24px 28px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        transition: border-color 0.3s;
-      }
-
-      .edu-card:hover { border-color: rgba(26,107,255,0.4); }
-
-      .edu-degree { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
-      .edu-inst { color: var(--muted); font-size: 0.9rem; }
-      .edu-badge {
-        background: rgba(0,229,195,0.1);
-        border: 1px solid rgba(0,229,195,0.2);
-        color: var(--accent);
-        padding: 8px 16px;
-        border-radius: 100px;
-        font-size: 0.82rem;
-        font-weight: 700;
-        white-space: nowrap;
-        text-align: center;
-      }
-      .edu-year { display: block; font-size: 0.75rem; color: var(--muted); font-weight: 400; margin-top: 2px; }
-
-      /* ── CONTACT ── */
-      .contact-wrapper { max-width: 640px; margin: 0 auto; }
-
-      .contact-info-cards {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-bottom: 36px;
-      }
-
-      .contact-info-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        transition: all 0.3s;
-        color: var(--text);
-      }
-
-      .contact-info-card:hover {
-        border-color: var(--primary);
-        transform: translateY(-2px);
-        color: var(--accent);
-      }
-
-      .contact-info-card i {
-        width: 38px; height: 38px;
-        border-radius: 10px;
-        background: rgba(26,107,255,0.15);
-        color: var(--primary);
-        display: flex; align-items: center; justify-content: center;
-        font-size: 1rem;
-        flex-shrink: 0;
-      }
-
-      .contact-info-card span { font-size: 0.88rem; font-weight: 500; }
-
-      .contact-form {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 32px;
-      }
-
-      .form-group { margin-bottom: 20px; }
-      .form-group label { display: block; margin-bottom: 8px; font-size: 0.88rem; font-weight: 600; color: var(--muted); }
-      .form-control {
-        width: 100%;
-        padding: 12px 16px;
-        background: rgba(255,255,255,0.05);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        color: var(--text);
-        font-size: 0.95rem;
-        font-family: 'DM Sans', sans-serif;
-        transition: border-color 0.3s;
-      }
-      .form-control:focus { outline: none; border-color: var(--primary); }
-      .form-control::placeholder { color: var(--muted); }
-      textarea.form-control { resize: vertical; min-height: 130px; }
-
-      .btn {
-        width: 100%;
-        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-        color: white;
-        padding: 14px;
-        border: none;
-        border-radius: 8px;
-        font-size: 0.95rem;
-        font-weight: 700;
-        font-family: 'Syne', sans-serif;
-        cursor: pointer;
-        letter-spacing: 0.5px;
-        transition: opacity 0.3s, transform 0.2s;
-      }
-      .btn:hover { opacity: 0.9; transform: translateY(-1px); }
-
-      /* ── FOOTER ── */
-      footer {
-        background: var(--dark2);
-        border-top: 1px solid var(--border);
-        padding: 36px 0;
-        text-align: center;
-      }
-
-      .social-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 20px; }
-      .social-links a {
-        width: 44px; height: 44px;
-        border-radius: 10px;
-        background: var(--card);
-        border: 1px solid var(--border);
-        display: flex; align-items: center; justify-content: center;
-        color: var(--muted);
-        font-size: 1.1rem;
-        transition: all 0.3s;
-      }
-      .social-links a:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
-
-      .copyright { color: var(--muted); font-size: 0.85rem; }
-
-      /* ── RESPONSIVE ── */
-      @media (max-width: 900px) {
-        .about-grid { grid-template-columns: 1fr; }
-        .about-card { max-width: 320px; }
-      }
-
-      @media (max-width: 768px) {
-        nav ul { display: none; }
-        .mobile-menu-btn { display: block; }
-        nav ul.active {
-          display: flex;
-          flex-direction: column;
-          position: absolute;
-          top: 60px; left: 0;
-          width: 100%;
-          background: var(--dark2);
-          padding: 20px;
-          gap: 16px;
-          border-bottom: 1px solid var(--border);
-        }
-        .contact-info-cards { grid-template-columns: 1fr; }
-        .projects-grid { grid-template-columns: 1fr; }
-        .skills-grid { grid-template-columns: 1fr; }
-        .exp-header { flex-direction: column; }
-      }
-
-      /* Scroll animation */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(24px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-      }
-      .fade-in.visible { opacity: 1; transform: translateY(0); }
-    </style>
-  </head>
-  <body>
-
-    <!-- HEADER -->
-    <header id="header">
-      <div class="container header-content">
-        <div class="logo">
-          <h1>Anvesh <span>Jangam</span></h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jangam Anvesh — .NET & Angular Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
+  <header id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">JA<span>.</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home"    class="nav-link active">Home</a></li>
+          <li><a href="#about"   class="nav-link">About</a></li>
+          <li><a href="#skills"  class="nav-link">Skills</a></li>
+          <li><a href="#projects"class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section id="home" class="hero">
+    <div class="hero-bg-shape"></div>
+    <div class="container hero-content">
+      <p class="hero-greeting reveal">👋 Hello, I'm</p>
+      <h1 class="hero-name reveal delay-1">Jangam Anvesh</h1>
+      <h2 class="hero-role reveal delay-2">
+        <span id="typed-text"></span><span class="cursor">|</span>
+      </h2>
+      <p class="hero-summary reveal delay-3">
+        Full Stack developer with <strong>3.6 years</strong> of experience crafting
+        scalable enterprise applications with .NET, Angular, React and SQL Server.
+      </p>
+      <div class="hero-actions reveal delay-4">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="resume.pdf" class="btn btn-outline" download>
+          <i class="fas fa-download"></i> Resume
+        </a>
+      </div>
+      <div class="hero-socials reveal delay-5">
+        <a href="https://www.linkedin.com/in/anvesh-j-4525571b5/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Nani94944" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:jgmanvesh@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll down</span>
+      <i class="fas fa-arrow-down"></i>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Get to know me</p>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-avatar reveal">
+          <div class="avatar-box">
+            <div class="avatar-initials">JA</div>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card reveal delay-1">
+              <strong>3.6</strong>
+              <span>Years Experience</span>
+            </div>
+            <div class="stat-card reveal delay-2">
+              <strong>7+</strong>
+              <span>Projects Delivered</span>
+            </div>
+            <div class="stat-card reveal delay-3">
+              <strong>99.9%</strong>
+              <span>Uptime Achieved</span>
+            </div>
+          </div>
         </div>
-        <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <div class="about-text reveal delay-2">
+          <h3>Full Stack .NET &amp; Angular Developer</h3>
+          <p>
+            I'm a passionate software engineer currently working at
+            <strong>Infinite Computer Solutions</strong>, where I contribute to the
+            <em>BrassRing Recruitment Suite</em> — an enterprise-grade product
+            used by global clients.
+          </p>
+          <p>
+            My core expertise lies in building robust backend systems with
+            <strong>C#, .NET Core, and ASP.NET</strong>, paired with responsive
+            frontends using <strong>Angular, AngularJS, and React</strong>. I'm
+            also experienced with <strong>SQL Server, Entity Framework,</strong> and
+            <strong>Azure DevOps</strong> for CI/CD and production support.
+          </p>
+          <p>
+            I enjoy solving real-world problems — from MSSQL synchronization
+            issues in Microsoft Dynamics 365 to crafting AI chatbots with the
+            Rasa framework. I'm based in Hyderabad and open to relocating for
+            the right opportunity.
+          </p>
+          <div class="about-tags">
+            <span class="tag">.NET Core</span>
+            <span class="tag">C#</span>
+            <span class="tag">Angular</span>
+            <span class="tag">React</span>
+            <span class="tag">SQL Server</span>
+            <span class="tag">Azure DevOps</span>
+            <span class="tag">Jira</span>
+            <span class="tag">Docker</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ SKILLS ═══════════════════════ -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What I work with</p>
+        <h2 class="section-title">Skills</h2>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-group reveal delay-1">
+          <div class="skill-group-icon"><i class="fas fa-server"></i></div>
+          <h3>Backend</h3>
+          <ul class="skill-list">
+            <li><span class="skill-name">C# / .NET Core</span><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></li>
+            <li><span class="skill-name">ASP.NET Core / Web API</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></li>
+            <li><span class="skill-name">Entity Framework Core</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></li>
+            <li><span class="skill-name">Microservices</span><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></li>
           </ul>
-        </nav>
-      </div>
-    </header>
-
-    <!-- HERO -->
-    <section id="home" class="hero">
-      <div class="container hero-content">
-        <div class="hero-badge"><i class="fas fa-circle" style="font-size:0.5rem;"></i> Available for opportunities</div>
-        <h1>Jangam <span>Anvesh</span></h1>
-        <p>Full Stack .NET Developer specializing in Angular, React, and enterprise backend systems. 3+ years building scalable recruitment and enterprise solutions at Infinite Computer Solutions.</p>
-        <div class="contact-row">
-          <a class="contact-pill" href="mailto:jgmanvesh@gmail.com">
-            <i class="fas fa-envelope"></i> jgmanvesh@gmail.com
-          </a>
-          <a class="contact-pill" href="tel:+919121232760">
-            <i class="fas fa-phone"></i> +91 9121232760
-          </a>
-          <a class="contact-pill" href="https://www.linkedin.com/in/anvesh-j-4525571b5/" target="_blank">
-            <i class="fab fa-linkedin"></i> LinkedIn
-          </a>
-          <a class="contact-pill" href="https://github.com/Nani94944" target="_blank">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-          <span class="contact-pill">
-            <i class="fas fa-map-marker-alt"></i> Hyderabad, India
-          </span>
         </div>
-      </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section fade-in">
-      <div class="container">
-        <div class="section-label"><i class="fas fa-user"></i> About Me</div>
-        <h2 class="section-title">Who I Am</h2>
-        <div class="section-divider"></div>
-        <div class="about-grid">
-          <div class="about-card">
-            <div class="profile-icon">JA</div>
-            <h3>Jangam Anvesh</h3>
-            <p>Full Stack .NET Developer</p>
-            <div class="about-stat-row">
-              <div class="about-stat">
-                <strong>3+</strong>
-                <span>Years Exp.</span>
-              </div>
-              <div class="about-stat">
-                <strong>7+</strong>
-                <span>Projects</span>
-              </div>
-              <div class="about-stat">
-                <strong>20%</strong>
-                <span>Bug reduction</span>
-              </div>
-              <div class="about-stat">
-                <strong>99.9%</strong>
-                <span>Uptime</span>
-              </div>
-            </div>
-          </div>
-          <div class="about-text">
-            <p>I am a passionate Full Stack .NET Developer with 3+ years of hands-on experience building enterprise-grade applications. My expertise spans both frontend and backend technologies, from crafting responsive Angular/React UIs to engineering robust .NET Core APIs and microservices.</p>
-            <p>Currently at Infinite Computer Solutions, I contribute to the BrassRing Recruitment Suite — a large-scale enterprise product — where I've developed custom branding templates, implemented user privacy features, and maintained CI/CD pipelines with Azure DevOps.</p>
-            <p>I'm proficient with Microsoft Dynamics 365, Jira, Azure DevOps, and bring strong problem-solving skills to every project I work on.</p>
-            <div class="objective-box">
-              "To thrive in a dynamic environment, leveraging my skills in .NET, Angular, React, and issue tracking tools like Jira and Azure DevOps to deliver innovative solutions that drive company success while fostering personal growth."
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section section-alt fade-in">
-      <div class="container">
-        <div class="section-label"><i class="fas fa-briefcase"></i> Work History</div>
-        <h2 class="section-title">Experience</h2>
-        <div class="section-divider"></div>
-        <div class="exp-card">
-          <div class="exp-header">
-            <div>
-              <div class="exp-title">Software Engineer</div>
-              <div class="exp-company">Infinite Computer Solutions, Visakhapatnam</div>
-              <div class="exp-project" style="margin-top:6px;">Project: BrassRing Recruitment Suite</div>
-            </div>
-            <div class="exp-date">Sept 2022 – Present</div>
-          </div>
-          <ul class="exp-list">
-            <li>Developed full-stack features using AngularJS, Angular, React, .NET, MVC, and ASP.NET Core for enterprise recruitment solutions.</li>
-            <li>Implemented client-specific branding templates by customizing UI components with Angular/React and CSS, ensuring consistent logos, colors, and fonts across applications.</li>
-            <li>Developed a cookie consent banner for the SimilarJobs module using JavaScript and .NET to enhance user privacy compliance.</li>
-            <li>Created and resolved Jira tickets for frontend and API issues, maintaining detailed documentation and ensuring timely resolution.</li>
-            <li>Managed bug work items in Azure DevOps, applied fixes through CI/CD pipelines, and verified solutions with unit testing.</li>
-            <li>Investigated and resolved Microsoft Dynamics 365 production issues, including MSSQL synchronization errors, collaborating closely with support teams.</li>
-            <li>Developed a client-specific chatbot using the Rasa framework and Python for natural language processing and automated support.</li>
+        <div class="skill-group reveal delay-2">
+          <div class="skill-group-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>Frontend</h3>
+          <ul class="skill-list">
+            <li><span class="skill-name">Angular / AngularJS</span><div class="skill-bar"><div class="skill-fill" data-w="87"></div></div></li>
+            <li><span class="skill-name">React</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></li>
+            <li><span class="skill-name">TypeScript / JavaScript</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></li>
+            <li><span class="skill-name">HTML5 / CSS3 / Bootstrap</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></li>
           </ul>
-          <div class="achievements">
-            <h4><i class="fas fa-trophy" style="margin-right:6px;"></i> Key Achievements</h4>
-            <ul class="exp-list">
-              <li>Improved client satisfaction by delivering branded UI templates and implementing user privacy features like cookie consent banners.</li>
-              <li>Reduced bug resolution time by 20% through efficient Jira and Azure DevOps ticket management and root-cause analysis.</li>
-              <li>Ensured 99.9% application uptime by proactively resolving high-priority Dynamics 365 issues in production environments.</li>
-            </ul>
-          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section fade-in">
-      <div class="container">
-        <div class="section-label"><i class="fas fa-code"></i> Technical Stack</div>
-        <h2 class="section-title">Skills & Competencies</h2>
-        <div class="section-divider"></div>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <div class="skill-card-header">
-              <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
-              <h3>Languages & Frameworks</h3>
-            </div>
-            <div class="tags">
-              <span class="tag">C#</span>
-              <span class="tag">.NET</span>
-              <span class="tag">.NET Core</span>
-              <span class="tag">ASP.NET Core</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">AngularJS</span>
-              <span class="tag">Angular</span>
-              <span class="tag">React</span>
-              <span class="tag">Python</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-card-header">
-              <div class="skill-icon"><i class="fas fa-globe"></i></div>
-              <h3>Web Development</h3>
-            </div>
-            <div class="tags">
-              <span class="tag">MVC</span>
-              <span class="tag">Razor Pages</span>
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">Bootstrap</span>
-              <span class="tag">RESTful APIs</span>
-              <span class="tag">Microservices</span>
-              <span class="tag">ASP.NET Web API</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-card-header">
-              <div class="skill-icon"><i class="fas fa-database"></i></div>
-              <h3>Database</h3>
-            </div>
-            <div class="tags">
-              <span class="tag">SQL Server 2019</span>
-              <span class="tag">Entity Framework</span>
-              <span class="tag">EF Core</span>
-              <span class="tag">MongoDB</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-card-header">
-              <div class="skill-icon"><i class="fas fa-tools"></i></div>
-              <h3>Tools & DevOps</h3>
-            </div>
-            <div class="tags">
-              <span class="tag">Git</span>
-              <span class="tag">Azure DevOps</span>
-              <span class="tag">Jira</span>
-              <span class="tag">Docker</span>
-              <span class="tag">NUnit</span>
-              <span class="tag">Moq</span>
-              <span class="tag">Microsoft Dynamics 365</span>
-              <span class="tag">Azure App Services</span>
-              <span class="tag">Rasa</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-card-header">
-              <div class="skill-icon"><i class="fas fa-star"></i></div>
-              <h3>Professional Skills</h3>
-            </div>
-            <div class="tags">
-              <span class="tag">Product Development</span>
-              <span class="tag">CI/CD</span>
-              <span class="tag">Production Support</span>
-              <span class="tag">Unit Testing</span>
-              <span class="tag">Cross-functional Collaboration</span>
-              <span class="tag">Root-Cause Analysis</span>
-            </div>
-          </div>
+        <div class="skill-group reveal delay-3">
+          <div class="skill-group-icon"><i class="fas fa-database"></i></div>
+          <h3>Database</h3>
+          <ul class="skill-list">
+            <li><span class="skill-name">SQL Server 2019</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></li>
+            <li><span class="skill-name">MongoDB</span><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></li>
+            <li><span class="skill-name">Entity Framework</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></li>
+          </ul>
         </div>
-      </div>
-    </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section section-alt fade-in">
-      <div class="container">
-        <div class="section-label"><i class="fas fa-rocket"></i> Work</div>
+        <div class="skill-group reveal delay-4">
+          <div class="skill-group-icon"><i class="fas fa-tools"></i></div>
+          <h3>Tools &amp; DevOps</h3>
+          <ul class="skill-list">
+            <li><span class="skill-name">Azure DevOps / CI-CD</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></li>
+            <li><span class="skill-name">Git</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></li>
+            <li><span class="skill-name">Jira / MS Dynamics 365</span><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div></li>
+            <li><span class="skill-name">Docker / NUnit</span><div class="skill-bar"><div class="skill-fill" data-w="68"></div></div></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ PROJECTS ═══════════════════════ -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Things I've built</p>
         <h2 class="section-title">Projects</h2>
-        <div class="section-divider"></div>
-        <div class="projects-grid">
-
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon"><i class="fas fa-cookie-bite"></i></div>
-              <div class="project-meta">
-                <div class="project-title">Cookie Consent Banner</div>
-                <div class="project-date">January 2024 – February 2024</div>
-              </div>
-            </div>
-            <div class="project-body">
-              <p class="project-desc">Designed and implemented a cookie consent banner to comply with privacy policies and enhance user transparency. Integrated local storage logic to remember user preferences, ensured non-intrusive UI placement, and followed modern UX patterns for accessibility and responsiveness.</p>
-              <div class="project-techs">
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">HTML</span>
-                <span class="tech-badge">CSS</span>
-                <span class="tech-badge">AngularJS</span>
-                <span class="tech-badge">.NET Framework</span>
-                <span class="tech-badge">MySQL</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon"><i class="fas fa-paint-brush"></i></div>
-              <div class="project-meta">
-                <div class="project-title">Custom Homepage Design Tool</div>
-                <div class="project-date">October 2024 – Present</div>
-              </div>
-            </div>
-            <div class="project-body">
-              <p class="project-desc">Designed and developed a customizable homepage design tool that allows users to create personalized landing pages with drag-and-drop functionality and widgets. Integrated dynamic theme customization features, enabling real-time previews and easy modification of colors, fonts, and layout structures.</p>
-              <div class="project-techs">
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">HTML</span>
-                <span class="tech-badge">CSS</span>
-                <span class="tech-badge">ReactJS</span>
-                <span class="tech-badge">ASP.NET MVC</span>
-                <span class="tech-badge">MySQL</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon"><i class="fas fa-user-shield"></i></div>
-              <div class="project-meta">
-                <div class="project-title">Authentication & Authorization System</div>
-                <div class="project-date">January 2024 – February 2024</div>
-              </div>
-            </div>
-            <div class="project-body">
-              <p class="project-desc">A secure user authentication system with registration, login, and role-based access control using JWT tokens. Implemented password hashing and session expiration for enhanced security.</p>
-              <div class="project-techs">
-                <span class="tech-badge">ASP.NET Core Web API</span>
-                <span class="tech-badge">Entity Framework Core</span>
-                <span class="tech-badge">SQL Server</span>
-                <span class="tech-badge">JWT</span>
-                <span class="tech-badge">BCrypt</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon"><i class="fas fa-file-alt"></i></div>
-              <div class="project-meta">
-                <div class="project-title">Resume-Based Job Matching (Archill API)</div>
-                <div class="project-date">November 2024 – December 2024</div>
-              </div>
-            </div>
-            <div class="project-body">
-              <p class="project-desc">Built a resume-matching feature where user resumes are uploaded via chatbot and encoded in base64 before being sent to Archill's API. Based on parsed resume content, the API returns the most relevant job recommendations, dynamically displayed in the frontend.</p>
-              <div class="project-techs">
-                <span class="tech-badge">ASP.NET</span>
-                <span class="tech-badge">AngularJS</span>
-                <span class="tech-badge">SQL Server</span>
-                <span class="tech-badge">Base64 Encoding</span>
-                <span class="tech-badge">REST API</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon"><i class="fas fa-robot"></i></div>
-              <div class="project-meta">
-                <div class="project-title">Rasa Chatbot Development & Deployment</div>
-                <div class="project-date">June 2024 – July 2024</div>
-              </div>
-            </div>
-            <div class="project-body">
-              <p class="project-desc">Designed and developed an AI-powered chatbot using the Rasa framework with custom actions to handle dynamic user queries. Implemented domain-specific conversation flows, integrated backend APIs, and deployed the bot to a web server with environment-specific configuration and error handling.</p>
-              <div class="project-techs">
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">Rasa</span>
-                <span class="tech-badge">Custom Actions</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon"><i class="fas fa-search"></i></div>
-              <div class="project-meta">
-                <div class="project-title">Job Search Chatbot with Dynamic Card Rendering</div>
-                <div class="project-date">August 2024 – September 2024</div>
-              </div>
-            </div>
-            <div class="project-body">
-              <p class="project-desc">Built a Rasa-based conversational chatbot that responds to user job queries by dynamically displaying job cards. Implemented custom actions to fetch job data based on keywords, structured output in a user-friendly card format, and tailored responses based on search context.</p>
-              <div class="project-techs">
-                <span class="tech-badge">Rasa</span>
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">Custom Actions</span>
-                <span class="tech-badge">REST API</span>
-                <span class="tech-badge">YAML</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon"><i class="fas fa-briefcase"></i></div>
-              <div class="project-meta">
-                <div class="project-title">Similar Job Recommendations (Archill API)</div>
-                <div class="project-date">January 2025 – February 2025</div>
-              </div>
-            </div>
-            <div class="project-body">
-              <p class="project-desc">Developed a job recommendation feature where job details are indexed and sent to the Archill API, which returns a list of similar jobs displayed as horizontally scrollable cards. Implemented backend with ASP.NET and SQL Server; built the frontend using AngularJS with responsive card-based design.</p>
-              <div class="project-techs">
-                <span class="tech-badge">ASP.NET</span>
-                <span class="tech-badge">AngularJS</span>
-                <span class="tech-badge">Angular</span>
-                <span class="tech-badge">SQL Server</span>
-                <span class="tech-badge">REST API</span>
-                <span class="tech-badge">HTML/CSS</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
       </div>
-    </section>
+      <div class="projects-grid">
 
-    <!-- EDUCATION -->
-    <section id="education" class="section fade-in">
-      <div class="container">
-        <div class="section-label"><i class="fas fa-graduation-cap"></i> Academic Background</div>
-        <h2 class="section-title">Education</h2>
-        <div class="section-divider"></div>
-        <div class="edu-grid">
-          <div class="edu-card">
-            <div>
-              <div class="edu-degree">B.Tech – Electrical & Electronics Engineering</div>
-              <div class="edu-inst">Narasaraopet Engineering College, Narasaraopet</div>
-            </div>
-            <div class="edu-badge">
-              7.24 CGPA
-              <span class="edu-year">2019 – 2022</span>
+        <article class="project-card reveal delay-1">
+          <div class="project-card-top">
+            <div class="project-icon"><i class="fas fa-robot"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/Nani94944" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             </div>
           </div>
-          <div class="edu-card">
-            <div>
-              <div class="edu-degree">Diploma</div>
-              <div class="edu-inst">Newtons Institute of Engineering</div>
-            </div>
-            <div class="edu-badge">
-              70%
-              <span class="edu-year">2013 – 2018</span>
+          <h3>Rasa AI Chatbot Suite</h3>
+          <p>Designed and deployed an AI-powered chatbot using the Rasa framework with custom Python actions. Handles dynamic job-search queries, resume upload &amp; matching, and returns results as interactive card layouts.</p>
+          <div class="project-techs">
+            <span>Python</span><span>Rasa</span><span>REST API</span><span>YAML</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal delay-2">
+          <div class="project-card-top">
+            <div class="project-icon"><i class="fas fa-briefcase"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/Nani94944" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             </div>
           </div>
-          <div class="edu-card">
-            <div>
-              <div class="edu-degree">SSC (10th Grade)</div>
-              <div class="edu-inst">Loyola High School</div>
-            </div>
-            <div class="edu-badge">
-              8.2 CGPA
-              <span class="edu-year">2013</span>
+          <h3>Similar Job Recommendations</h3>
+          <p>Developed a job recommendation engine integrating the Archill API. Job details are indexed, sent to the API, and matching jobs are rendered as horizontally scrollable cards in an AngularJS frontend.</p>
+          <div class="project-techs">
+            <span>ASP.NET</span><span>AngularJS</span><span>SQL Server</span><span>REST API</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal delay-3">
+          <div class="project-card-top">
+            <div class="project-icon"><i class="fas fa-user-shield"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/Nani94944" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             </div>
           </div>
-        </div>
+          <h3>Authentication &amp; Authorization System</h3>
+          <p>Secure user auth with registration, login, and role-based access control using JWT tokens. Implemented BCrypt password hashing, session expiration, and ASP.NET Core Web API backend.</p>
+          <div class="project-techs">
+            <span>ASP.NET Core</span><span>EF Core</span><span>SQL Server</span><span>JWT</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal delay-4">
+          <div class="project-card-top">
+            <div class="project-icon"><i class="fas fa-paint-brush"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/Nani94944" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>Custom Homepage Design Tool</h3>
+          <p>A drag-and-drop homepage builder allowing users to create personalized landing pages with real-time theme customization — colors, fonts, and layout — powered by React and ASP.NET MVC.</p>
+          <div class="project-techs">
+            <span>ReactJS</span><span>ASP.NET MVC</span><span>JavaScript</span><span>MySQL</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal delay-5">
+          <div class="project-card-top">
+            <div class="project-icon"><i class="fas fa-file-alt"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/Nani94944" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>Resume-Based Job Matching</h3>
+          <p>Chatbot-integrated resume upload feature that encodes resumes in base64 and forwards them to Archill's API. Returns personalized job matches dynamically rendered in the frontend UI.</p>
+          <div class="project-techs">
+            <span>ASP.NET</span><span>AngularJS</span><span>Base64</span><span>REST API</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal delay-1">
+          <div class="project-card-top">
+            <div class="project-icon"><i class="fas fa-cookie-bite"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/Nani94944" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>Cookie Consent &amp; Privacy Banner</h3>
+          <p>Implemented a GDPR-compliant cookie consent banner for the SimilarJobs module. Used local storage to persist user preferences with a non-intrusive, accessible UI following modern UX patterns.</p>
+          <div class="project-techs">
+            <span>JavaScript</span><span>AngularJS</span><span>.NET</span><span>CSS</span>
+          </div>
+        </article>
+
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- PERSONAL DETAILS -->
-    <section class="section section-alt fade-in">
-      <div class="container">
-        <div class="section-label"><i class="fas fa-id-card"></i> Personal</div>
-        <h2 class="section-title">Personal Details</h2>
-        <div class="section-divider"></div>
-        <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:16px; max-width:800px;">
-          <div class="edu-card" style="flex-direction:column; align-items:flex-start;">
-            <div class="edu-inst" style="font-size:0.78rem; margin-bottom:4px; color:var(--accent);">Date of Birth</div>
-            <div class="edu-degree" style="font-size:0.95rem;">21 February 1998</div>
-          </div>
-          <div class="edu-card" style="flex-direction:column; align-items:flex-start;">
-            <div class="edu-inst" style="font-size:0.78rem; margin-bottom:4px; color:var(--accent);">Nationality</div>
-            <div class="edu-degree" style="font-size:0.95rem;">Indian</div>
-          </div>
-          <div class="edu-card" style="flex-direction:column; align-items:flex-start;">
-            <div class="edu-inst" style="font-size:0.78rem; margin-bottom:4px; color:var(--accent);">Languages</div>
-            <div class="edu-degree" style="font-size:0.95rem;">English, Telugu, Hindi</div>
-          </div>
-          <div class="edu-card" style="flex-direction:column; align-items:flex-start;">
-            <div class="edu-inst" style="font-size:0.78rem; margin-bottom:4px; color:var(--accent);">Willingness to Relocate</div>
-            <div class="edu-degree" style="font-size:0.95rem;">Yes, for the right opportunity</div>
-          </div>
-          <div class="edu-card" style="flex-direction:column; align-items:flex-start; grid-column: 1 / -1;">
-            <div class="edu-inst" style="font-size:0.78rem; margin-bottom:4px; color:var(--accent);">Address</div>
-            <div class="edu-degree" style="font-size:0.95rem;">6-125, Turakapalem, Pedapalakaluru, Guntur, AP – 522005</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section fade-in">
-      <div class="container">
-        <div class="section-label"><i class="fas fa-paper-plane"></i> Contact</div>
+  <!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Let's talk</p>
         <h2 class="section-title">Get In Touch</h2>
-        <div class="section-divider"></div>
-        <div class="contact-wrapper">
-          <div class="contact-info-cards">
-            <a class="contact-info-card" href="mailto:jgmanvesh@gmail.com">
-              <i class="fas fa-envelope"></i>
-              <span>jgmanvesh@gmail.com</span>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal delay-1">
+          <p class="contact-intro">
+            I'm always open to discussing new opportunities, interesting projects,
+            or just having a chat about technology. Feel free to reach out!
+          </p>
+          <div class="contact-items">
+            <a href="mailto:jgmanvesh@gmail.com" class="contact-item">
+              <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <strong>Email</strong>
+                <span>jgmanvesh@gmail.com</span>
+              </div>
             </a>
-            <a class="contact-info-card" href="tel:+919121232760">
-              <i class="fas fa-phone"></i>
-              <span>+91 9121232760</span>
+            <a href="https://www.linkedin.com/in/anvesh-j-4525571b5/" target="_blank" class="contact-item">
+              <div class="contact-item-icon"><i class="fab fa-linkedin"></i></div>
+              <div>
+                <strong>LinkedIn</strong>
+                <span>anvesh-j-4525571b5</span>
+              </div>
             </a>
-            <a class="contact-info-card" href="https://www.linkedin.com/in/anvesh-j-4525571b5/" target="_blank">
-              <i class="fab fa-linkedin"></i>
-              <span>LinkedIn Profile</span>
+            <a href="https://github.com/Nani94944" target="_blank" class="contact-item">
+              <div class="contact-item-icon"><i class="fab fa-github"></i></div>
+              <div>
+                <strong>GitHub</strong>
+                <span>Nani94944</span>
+              </div>
             </a>
-            <a class="contact-info-card" href="https://github.com/Nani94944" target="_blank">
-              <i class="fab fa-github"></i>
-              <span>GitHub Profile</span>
-            </a>
-          </div>
-          <div class="contact-form">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" class="form-control" placeholder="Your Name" />
+            <div class="contact-item">
+              <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <strong>Location</strong>
+                <span>Hyderabad, India</span>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" class="form-control" placeholder="Your Email" />
-            </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" class="form-control" placeholder="Subject" />
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" class="form-control" placeholder="Your Message"></textarea>
-            </div>
-            <button class="btn" id="send-btn">Send Message</button>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="container">
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/anvesh-j-4525571b5/" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/Nani94944" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="mailto:jgmanvesh@gmail.com"><i class="fas fa-envelope"></i></a>
-          <a href="tel:+919121232760"><i class="fas fa-phone"></i></a>
+        <div class="contact-form-wrap reveal delay-2">
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">Full Name</label>
+                <input type="text" id="fname" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="femail">Email Address</label>
+                <input type="email" id="femail" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fsubject">Subject</label>
+              <input type="text" id="fsubject" placeholder="What's this about?" />
+            </div>
+            <div class="form-group">
+              <label for="fmessage">Message</label>
+              <textarea id="fmessage" rows="5" placeholder="Tell me more..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+            <p class="form-note" id="formNote"></p>
+          </form>
         </div>
-        <div class="copyright">&copy; 2025 Jangam Anvesh. All Rights Reserved.</div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script>
-      // Mobile nav
-      document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.toggle('active');
-      });
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer>
+    <div class="container footer-inner">
+      <p class="footer-copy">&copy; 2025 Jangam Anvesh. Crafted with care.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/anvesh-j-4525571b5/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Nani94944" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:jgmanvesh@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
 
-      // Smooth scroll
-      document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', e => {
-          const target = document.querySelector(a.getAttribute('href'));
-          if (target) {
-            e.preventDefault();
-            document.querySelector('.nav-links').classList.remove('active');
-            target.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      });
-
-      // Contact form
-      document.getElementById('send-btn').addEventListener('click', () => {
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-        if (name && email && subject && message) {
-          alert('Thank you for your message! This is a demo form.');
-          ['name','email','subject','message'].forEach(id => document.getElementById(id).value = '');
-        } else {
-          alert('Please fill in all fields before submitting.');
-        }
-      });
-
-      // Scroll animations
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
