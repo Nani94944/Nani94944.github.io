@@ -7,6 +7,96 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    /* ── PROFILE PHOTO ── */
+    .avatar-box {
+      position: relative;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #fff;
+      box-shadow: 0 8px 32px rgba(26,86,219,0.18);
+      background: linear-gradient(135deg, #1a56db 0%, #4d96ff 100%);
+      flex-shrink: 0;
+    }
+    .avatar-box img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .avatar-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', serif;
+      font-size: 3rem; font-weight: 600;
+      color: #fff; letter-spacing: 2px;
+    }
+
+    /* ── ACHIEVEMENTS SECTION ── */
+    #achievements { padding: 90px 0; background: #f8f9fc; }
+    .achievements-header { text-align: center; margin-bottom: 56px; }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .ach-card {
+      border: 1px solid #e4e7f0;
+      border-radius: 14px;
+      padding: 30px 26px;
+      background: #fff;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      position: relative; overflow: hidden;
+    }
+    .ach-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, #1a56db, #4d96ff);
+      border-radius: 4px 0 0 4px;
+    }
+    .ach-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 36px rgba(26,86,219,0.12);
+      border-color: rgba(26,86,219,0.25);
+    }
+    .ach-icon {
+      width: 50px; height: 50px;
+      border-radius: 12px;
+      background: #e8f0fe; color: #1a56db;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .ach-metric {
+      font-family: 'Lora', serif;
+      font-size: 2rem; font-weight: 600;
+      color: #1a56db; line-height: 1;
+    }
+    .ach-title {
+      font-size: 1rem; font-weight: 600;
+      color: #1a1f2e; line-height: 1.35;
+    }
+    .ach-desc {
+      font-size: 0.87rem; color: #6b7394; line-height: 1.7;
+    }
+    .ach-desc strong { color: #1a1f2e; font-weight: 600; }
+
+    /* ── PROJECT CARD UL ── */
+    .project-card ul {
+      margin-top: 10px; padding-left: 18px;
+      font-size: 0.85rem; color: #6b7394; line-height: 1.75;
+      display: flex; flex-direction: column; gap: 5px;
+    }
+    .project-card ul li strong { color: #1a1f2e; font-weight: 600; }
+
+    @media (max-width: 768px) {
+      .achievements-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -19,11 +109,12 @@
       </button>
       <nav>
         <ul class="nav-links" id="navLinks">
-          <li><a href="#home"    class="nav-link active">Home</a></li>
-          <li><a href="#about"   class="nav-link">About</a></li>
-          <li><a href="#skills"  class="nav-link">Skills</a></li>
-          <li><a href="#projects"class="nav-link">Projects</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#home"         class="nav-link active">Home</a></li>
+          <li><a href="#about"        class="nav-link">About</a></li>
+          <li><a href="#achievements" class="nav-link">Achievements</a></li>
+          <li><a href="#skills"       class="nav-link">Skills</a></li>
+          <li><a href="#projects"     class="nav-link">Projects</a></li>
+          <li><a href="#contact"      class="nav-link">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -69,9 +160,18 @@
       </div>
       <div class="about-grid">
         <div class="about-avatar reveal">
+
+          <!--
+            ══ HOW TO ADD YOUR PHOTO ══
+            1. Copy your photo (e.g. anvesh.jpg) into the same folder as index.html
+            2. Delete the <div class="avatar-placeholder"> line below
+            3. Uncomment the <img> line below it
+          -->
           <div class="avatar-box">
-            <div class="avatar-initials">JA</div>
+            <div class="avatar-placeholder">JA</div>
+            <!-- <img src="anvesh.jpg" alt="Jangam Anvesh" /> -->
           </div>
+
           <div class="about-stats">
             <div class="stat-card reveal delay-1">
               <strong>3.6</strong>
@@ -87,31 +187,33 @@
             </div>
           </div>
         </div>
+
         <div class="about-text reveal delay-2">
           <h3>Full Stack .NET &amp; Angular Developer</h3>
           <p>
             I'm a passionate software engineer currently working at
             <strong>Infinite Computer Solutions</strong>, where I contribute to the
-            <em>BrassRing Recruitment Suite</em> — an enterprise-grade product
-            used by global clients.
+            <em>BrassRing Recruitment Suite</em> — an enterprise-grade recruitment
+            product used by global clients.
           </p>
           <p>
             My core expertise lies in building robust backend systems with
             <strong>C#, .NET Core, and ASP.NET</strong>, paired with responsive
-            frontends using <strong>Angular, AngularJS, and React</strong>. I'm
+            frontends using <strong>Angular 19, AngularJS, and React</strong>. I'm
             also experienced with <strong>SQL Server, Entity Framework,</strong> and
             <strong>Azure DevOps</strong> for CI/CD and production support.
           </p>
           <p>
-            I enjoy solving real-world problems — from MSSQL synchronization
-            issues in Microsoft Dynamics 365 to crafting AI chatbots with the
-            Rasa framework. I'm based in Hyderabad and open to relocating for
-            the right opportunity.
+            I enjoy solving real-world problems — from leading full-scale
+            <strong>AngularJS → Angular 19 migrations</strong> to crafting AI
+            chatbots with the Rasa framework and improving app security via
+            minification, CSRF tokens, and JWT. Based in Hyderabad and open
+            to relocating for the right opportunity.
           </p>
           <div class="about-tags">
             <span class="tag">.NET Core</span>
             <span class="tag">C#</span>
-            <span class="tag">Angular</span>
+            <span class="tag">Angular 19</span>
             <span class="tag">React</span>
             <span class="tag">SQL Server</span>
             <span class="tag">Azure DevOps</span>
@@ -119,6 +221,92 @@
             <span class="tag">Docker</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ ACHIEVEMENTS ═══════════════════════ -->
+  <section id="achievements">
+    <div class="container">
+      <div class="achievements-header reveal">
+        <p class="section-label">What I've accomplished</p>
+        <h2 class="section-title">Key Achievements</h2>
+      </div>
+      <div class="achievements-grid">
+
+        <div class="ach-card reveal delay-1">
+          <div class="ach-icon"><i class="fas fa-arrow-trend-up"></i></div>
+          <div class="ach-metric">20%</div>
+          <div class="ach-title">Bug Resolution Time Reduced</div>
+          <div class="ach-desc">
+            Streamlined the entire bug lifecycle using <strong>Jira</strong> and
+            <strong>Azure DevOps</strong> — from ticket creation, root-cause
+            analysis, CI/CD deployment to unit test verification — cutting average
+            resolution time by 20%.
+          </div>
+        </div>
+
+        <div class="ach-card reveal delay-2">
+          <div class="ach-icon"><i class="fas fa-server"></i></div>
+          <div class="ach-metric">99.9%</div>
+          <div class="ach-title">Application Uptime Maintained</div>
+          <div class="ach-desc">
+            Proactively investigated and resolved high-priority
+            <strong>Microsoft Dynamics 365</strong> production issues including
+            MSSQL synchronization errors, ensuring near-zero downtime across
+            all enterprise client environments.
+          </div>
+        </div>
+
+        <div class="ach-card reveal delay-3">
+          <div class="ach-icon"><i class="fas fa-rocket"></i></div>
+          <div class="ach-metric">v1.8→19</div>
+          <div class="ach-title">AngularJS → Angular 19 Migration</div>
+          <div class="ach-desc">
+            Led a full-scale frontend migration from <strong>AngularJS 1.8 to
+            Angular 19</strong> (Standalone Architecture), introducing RxJS state
+            management, Micro-Frontend architecture, PrimeNG, i18n support, and
+            seamless legacy interop via event listeners.
+          </div>
+        </div>
+
+        <div class="ach-card reveal delay-4">
+          <div class="ach-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="ach-metric">GDPR</div>
+          <div class="ach-title">Privacy &amp; Compliance Features</div>
+          <div class="ach-desc">
+            Designed and implemented a fully compliant <strong>cookie consent
+            banner</strong> for the SimilarJobs module using JavaScript and .NET,
+            with local storage persistence, accessible UI — boosting client trust
+            and regulatory compliance.
+          </div>
+        </div>
+
+        <div class="ach-card reveal delay-5">
+          <div class="ach-icon"><i class="fas fa-bolt"></i></div>
+          <div class="ach-metric">Perf+</div>
+          <div class="ach-title">Performance &amp; Security Hardening</div>
+          <div class="ach-desc">
+            Improved application load speed and security by converting JS files
+            to <strong>minified bundles (.min.js)</strong>, implementing
+            <strong>CSRF / anti-forgery tokens</strong>, enforcing HTTPS-only API
+            calls, and applying secure token-based auth using <strong>JWT &amp;
+            BCrypt</strong>.
+          </div>
+        </div>
+
+        <div class="ach-card reveal delay-1">
+          <div class="ach-icon"><i class="fas fa-users"></i></div>
+          <div class="ach-metric">Global</div>
+          <div class="ach-title">Enterprise Client Satisfaction</div>
+          <div class="ach-desc">
+            Delivered custom <strong>branded UI templates</strong> for global
+            enterprise clients on the BrassRing Recruitment Suite — personalizing
+            logos, color schemes, and fonts across Angular and React apps with
+            consistent cross-browser quality.
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -147,7 +335,7 @@
           <div class="skill-group-icon"><i class="fas fa-laptop-code"></i></div>
           <h3>Frontend</h3>
           <ul class="skill-list">
-            <li><span class="skill-name">Angular / AngularJS</span><div class="skill-bar"><div class="skill-fill" data-w="87"></div></div></li>
+            <li><span class="skill-name">Angular 19 / AngularJS</span><div class="skill-bar"><div class="skill-fill" data-w="87"></div></div></li>
             <li><span class="skill-name">React</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></li>
             <li><span class="skill-name">TypeScript / JavaScript</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></li>
             <li><span class="skill-name">HTML5 / CSS3 / Bootstrap</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></li>
@@ -187,44 +375,34 @@
         <h2 class="section-title">Projects</h2>
       </div>
       <div class="projects-grid">
-         <article class="project-card reveal delay-1">
-  <div class="project-card-top">
-    <div class="project-icon"><i class="fas fa-rocket"></i></div>
-    <div class="project-links">
-      <a href="https://github.com/Nani94944" target="_blank" title="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-  </div>
 
-  <h3>AngularJS to Angular 19 Migration</h3>
+        <!-- 1: Angular Migration -->
+        <article class="project-card reveal delay-1">
+          <div class="project-card-top">
+            <div class="project-icon"><i class="fas fa-rocket"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/Nani94944" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>AngularJS → Angular 19 Migration</h3>
+          <p>Led a full-scale enterprise migration from AngularJS 1.8 to Angular 19 using Standalone Architecture, modernizing the entire frontend of the BrassRing Recruitment Suite.</p>
+          <ul>
+            <li>Converted complete legacy codebase to modern Angular (Standalone)</li>
+            <li>Implemented <strong>RxJS-based state management</strong></li>
+            <li>Built <strong>Micro-Frontend architecture</strong> for scalability</li>
+            <li>Integrated <strong>PrimeNG &amp; Angular Material</strong> UI libraries</li>
+            <li>Enabled AngularJS ↔ Angular communication via event listeners</li>
+            <li>Implemented <strong>i18n</strong> with dynamic translations</li>
+            <li>Optimized HTTPS API calls and bundle performance</li>
+          </ul>
+          <div class="project-techs">
+            <span>Angular 19</span><span>AngularJS</span><span>RxJS</span>
+            <span>Micro Frontend</span><span>PrimeNG</span><span>Angular Material</span>
+          </div>
+        </article>
 
-  <p>
-    Successfully migrated a large-scale enterprise application from 
-    <strong>AngularJS 1.8 to Angular 19</strong>, modernizing the entire frontend architecture.
-  </p>
-
-  <ul style="margin-top:10px; padding-left:18px; font-size:14px;">
-    <li>Converted complete legacy AngularJS codebase to modern Angular (Standalone Architecture)</li>
-    <li>Implemented <strong>RxJS-based state management</strong></li>
-    <li>Built <strong>Micro-Frontend architecture</strong> for scalability</li>
-    <li>Integrated <strong>PrimeNG & Angular Material</strong> UI frameworks</li>
-    <li>Enabled communication between AngularJS & Angular using event listeners</li>
-    <li>Handled secure API calls (HTTPS) and optimized performance</li>
-    <li>Designed clean and maintainable folder structure</li>
-    <li>Implemented internationalization (i18n) and dynamic translations</li>
-  </ul>
-
-  <div class="project-techs">
-    <span>Angular 19</span>
-    <span>AngularJS</span>
-    <span>RxJS</span>
-    <span>Micro Frontend</span>
-    <span>PrimeNG</span>
-    <span>Angular Material</span>
-  </div>
-</article>
-        <article class="project-card reveal delay-6">
+        <!-- 2: Rasa AI Chatbot -->
+        <article class="project-card reveal delay-2">
           <div class="project-card-top">
             <div class="project-icon"><i class="fas fa-robot"></i></div>
             <div class="project-links">
@@ -238,7 +416,8 @@
           </div>
         </article>
 
-        <article class="project-card reveal delay-2">
+        <!-- 3: Similar Job Recommendations -->
+        <article class="project-card reveal delay-3">
           <div class="project-card-top">
             <div class="project-icon"><i class="fas fa-briefcase"></i></div>
             <div class="project-links">
@@ -252,7 +431,8 @@
           </div>
         </article>
 
-        <article class="project-card reveal delay-3">
+        <!-- 4: Auth System -->
+        <article class="project-card reveal delay-4">
           <div class="project-card-top">
             <div class="project-icon"><i class="fas fa-user-shield"></i></div>
             <div class="project-links">
@@ -260,13 +440,14 @@
             </div>
           </div>
           <h3>Authentication &amp; Authorization System</h3>
-          <p>Secure user auth with registration, login, and role-based access control using JWT tokens. Implemented BCrypt password hashing, session expiration, and ASP.NET Core Web API backend.</p>
+          <p>Secure user auth with registration, login, and role-based access control using JWT tokens. Implemented BCrypt password hashing, CSRF tokens, HTTPS enforcement, and session expiration.</p>
           <div class="project-techs">
-            <span>ASP.NET Core</span><span>EF Core</span><span>SQL Server</span><span>JWT</span>
+            <span>ASP.NET Core</span><span>EF Core</span><span>SQL Server</span><span>JWT</span><span>BCrypt</span>
           </div>
         </article>
 
-        <article class="project-card reveal delay-4">
+        <!-- 5: Homepage Design Tool -->
+        <article class="project-card reveal delay-5">
           <div class="project-card-top">
             <div class="project-icon"><i class="fas fa-paint-brush"></i></div>
             <div class="project-links">
@@ -280,7 +461,8 @@
           </div>
         </article>
 
-        <article class="project-card reveal delay-5">
+        <!-- 6: Resume Matching -->
+        <article class="project-card reveal delay-1">
           <div class="project-card-top">
             <div class="project-icon"><i class="fas fa-file-alt"></i></div>
             <div class="project-links">
@@ -294,7 +476,8 @@
           </div>
         </article>
 
-        <article class="project-card reveal delay-1">
+        <!-- 7: Cookie Consent -->
+        <article class="project-card reveal delay-2">
           <div class="project-card-top">
             <div class="project-icon"><i class="fas fa-cookie-bite"></i></div>
             <div class="project-links">
