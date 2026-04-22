@@ -1,89 +1,74 @@
-# 👋 Hi, I'm Jangam Anvesh
+<div align="center">
 
-💻 Full Stack Developer | .NET | Angular | React | SQL Server  
-📍 Hyderabad, India  
-📧 jgmanvesh@gmail.com  
+<!-- Gradient Header Simulation using Capsule Render -->
+<img src="https://capsule-render.vercel.app/api?type=transparent&height=120&section=header&text=Jangam%20Anvesh&fontSize=52&fontColor=635BFF&fontAlignY=55&animation=fadeIn" alt="Jangam Anvesh" />
 
----
+<!-- Typing Animation using readme-typing-svg -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=26&pause=1000&color=A78BFA&center=true&vCenter=true&width=600&height=50&lines=.NET+Developer;Angular+Developer;Full+Stack+Engineer;Problem+Solver" />
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=26&pause=1000&color=635BFF&center=true&vCenter=true&width=600&height=50&lines=.NET+Developer;Angular+Developer;Full+Stack+Engineer;Problem+Solver" alt="Typing Animation" />
+</picture>
 
-## 🧑‍💼 About Me
+<br>
 
-I am a passionate Full Stack Developer with **3.6+ years of experience** building scalable enterprise applications. Currently working at **Infinite Computer Solutions**, contributing to the **BrassRing Recruitment Suite** used by global clients.
+<p align="center" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <b style="color: #4B5563;">Building robust enterprise applications with modern technologies.</b><br>
+  <span style="color: #6B7280;">Focused on performance, scalability, and premium user experiences.</span>
+</p>
 
-I specialize in developing robust backend systems using **.NET Core, C#, ASP.NET**, and building modern, responsive frontends using **Angular, AngularJS, and React**.
+<br>
 
----
+<!-- Modern, Minimal Badges for Contact -->
+<a href="https://www.linkedin.com/in/anvesh-j-4525571b5/" target="_blank">
+  <img src="https://img.shields.io/badge/LinkedIn-000000?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+</a>
+&nbsp;
+<a href="mailto:jgmanvesh@gmail.com">
+  <img src="https://img.shields.io/badge/Email-000000?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+</a>
 
-## 🚀 Key Achievement
+<br><br><br>
 
-🔹 Successfully led a **full-scale migration from AngularJS 1.8 to Angular 19**, modernizing the entire application architecture.
+### 🛠️ Core Stack
 
-- Converted complete legacy codebase to Angular 19 (Standalone Architecture)
-- Implemented **RxJS-based state management**
-- Designed **Micro-Frontend architecture**
-- Integrated **PrimeNG & Angular Material**
-- Enabled **AngularJS ↔ Angular communication** using event listeners
-- Implemented **i18n (multi-language support)**
-- Optimized HTTPS API calls and application performance
+<p align="center">
+  <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C#" />
+  <img src="https://img.shields.io/badge/.NET_Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET Core" />
+  <img src="https://img.shields.io/badge/Angular_19-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <br><br>
+  <img src="https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white" alt="SQL Server" />
+  <img src="https://img.shields.io/badge/Azure_DevOps-0078D7?style=for-the-badge&logo=azure-devops&logoColor=white" alt="Azure DevOps" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+</p>
 
----
+<br><br>
 
-## 🛠️ Tech Stack
+### 🌟 Key Highlights
 
-**Backend**
-- C# / .NET Core / ASP.NET Web API  
-- Entity Framework Core  
-- Microservices Architecture  
+<table align="center" style="border: none; margin: 0; padding: 0;">
+  <tr style="border: none; background: transparent;">
+    <td align="center" width="33%" style="border: none; padding: 15px;">
+      <b>🚀 AngularJS to 19</b><br>
+      <span style="font-size: 14px; color: #6B7280;">Led a scalable standalone migration featuring micro-frontends and robust RxJS state management.</span>
+    </td>
+    <td align="center" width="33%" style="border: none; padding: 15px;">
+      <b>🤖 AI Integrations</b><br>
+      <span style="font-size: 14px; color: #6B7280;">Designed and deployed intelligent job-matching chatbots utilizing the Rasa NLP framework.</span>
+    </td>
+    <td align="center" width="33%" style="border: none; padding: 15px;">
+      <b>⚡ Enterprise Scale</b><br>
+      <span style="font-size: 14px; color: #6B7280;">Architected solutions ensuring 99.9% uptime and streamlined DevOps CI/CD pipelines.</span>
+    </td>
+  </tr>
+</table>
 
-**Frontend**
-- Angular 19 / AngularJS  
-- React  
-- TypeScript / JavaScript  
-- HTML5 / CSS3 / Bootstrap  
+<br><br>
 
-**Database**
-- SQL Server  
-- MongoDB  
+<!-- Optional GitHub Stats Card with subtle gradient and Stripe-like aesthetic -->
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Nani94944&show_icons=true&theme=transparent&hide_border=true&title_color=635BFF&icon_color=635BFF&text_color=4B5563" alt="GitHub Stats" />
+</p>
 
-**Tools & DevOps**
-- Azure DevOps (CI/CD)  
-- Git / GitHub  
-- Jira  
-- Docker  
-- MS Dynamics 365  
-
----
-
-## 📌 Projects
-
-### 🤖 Rasa AI Chatbot
-- Built AI chatbot with dynamic job search & resume matching  
-- Integrated REST APIs with Python & Rasa  
-
-### 💼 Similar Job Recommendations
-- Developed job recommendation engine using external APIs  
-- Implemented UI in AngularJS with scrollable cards  
-
-### 🔐 Authentication System
-- JWT-based authentication with role-based access  
-- Implemented security features like BCrypt & session handling  
-
----
-
-## 🏆 Achievements
-
-- 🚀 Migrated enterprise app from AngularJS → Angular 19  
-- ⚡ Improved performance & security using minification & HTTPS  
-- 🛡️ Implemented GDPR-compliant cookie consent system  
-- 📈 Reduced bug resolution time by 20%  
-
----
-
-## 🌐 Connect With Me
-
-- 🔗 LinkedIn: https://www.linkedin.com/in/anvesh-j-4525571b5/  
-- 💻 GitHub: https://github.com/Nani94944  
-
----
-
-⭐ *Always learning, building, and improving...*
+</div>
