@@ -1,103 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jangam Anvesh — .NET & Angular Developer</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <style>
-    /* ── PROFILE PHOTO ── */
-    .avatar-box {
-      position: relative;
-      width: 180px; height: 180px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid #fff;
-      box-shadow: 0 8px 32px rgba(26,86,219,0.18);
-      background: linear-gradient(135deg, #1a56db 0%, #4d96ff 100%);
-      flex-shrink: 0;
-    }
-    .avatar-box img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .avatar-placeholder {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Lora', serif;
-      font-size: 3rem; font-weight: 600;
-      color: #fff; letter-spacing: 2px;
-    }
 
-    /* ── ACHIEVEMENTS SECTION ── */
-    #achievements { padding: 90px 0; background: #f8f9fc; }
-    .achievements-header { text-align: center; margin-bottom: 56px; }
-
-    .achievements-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px;
-    }
-
-    .ach-card {
-      border: 1px solid #e4e7f0;
-      border-radius: 14px;
-      padding: 30px 26px;
-      background: #fff;
-      display: flex; flex-direction: column; gap: 12px;
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      position: relative; overflow: hidden;
-    }
-    .ach-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 4px; height: 100%;
-      background: linear-gradient(180deg, #1a56db, #4d96ff);
-      border-radius: 4px 0 0 4px;
-    }
-    .ach-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 36px rgba(26,86,219,0.12);
-      border-color: rgba(26,86,219,0.25);
-    }
-    .ach-icon {
-      width: 50px; height: 50px;
-      border-radius: 12px;
-      background: #e8f0fe; color: #1a56db;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; flex-shrink: 0;
-    }
-    .ach-metric {
-      font-family: 'Lora', serif;
-      font-size: 2rem; font-weight: 600;
-      color: #1a56db; line-height: 1;
-    }
-    .ach-title {
-      font-size: 1rem; font-weight: 600;
-      color: #1a1f2e; line-height: 1.35;
-    }
-    .ach-desc {
-      font-size: 0.87rem; color: #6b7394; line-height: 1.7;
-    }
-    .ach-desc strong { color: #1a1f2e; font-weight: 600; }
-
-    /* ── PROJECT CARD UL ── */
-    .project-card ul {
-      margin-top: 10px; padding-left: 18px;
-      font-size: 0.85rem; color: #6b7394; line-height: 1.75;
-      display: flex; flex-direction: column; gap: 5px;
-    }
-    .project-card ul li strong { color: #1a1f2e; font-weight: 600; }
-
-    @media (max-width: 768px) {
-      .achievements-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
+
 <body>
 
   <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
@@ -109,12 +25,12 @@
       </button>
       <nav>
         <ul class="nav-links" id="navLinks">
-          <li><a href="#home"         class="nav-link active">Home</a></li>
-          <li><a href="#about"        class="nav-link">About</a></li>
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#achievements" class="nav-link">Achievements</a></li>
-          <li><a href="#skills"       class="nav-link">Skills</a></li>
-          <li><a href="#projects"     class="nav-link">Projects</a></li>
-          <li><a href="#contact"      class="nav-link">Contact</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -140,7 +56,8 @@
         </a>
       </div>
       <div class="hero-socials reveal delay-5">
-        <a href="https://www.linkedin.com/in/anvesh-j-4525571b5/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/anvesh-j-4525571b5/" target="_blank" aria-label="LinkedIn"><i
+            class="fab fa-linkedin"></i></a>
         <a href="https://github.com/Nani94944" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
         <a href="mailto:jgmanvesh@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
@@ -152,1067 +69,319 @@
   </section>
 
   <!-- ═══════════════════════ ABOUT ═══════════════════════ -->
- <!-- ═══════════════════════ ABOUT ═══════════════════════ -->
-<!-- PASTE THIS INTO YOUR index.html replacing the existing about section -->
-<!-- Also paste the <style> block into your style.css or <head> styles   -->
-<!-- Also paste the <script> block before </body>                         -->
 
-<!-- ══════════════ STYLES — add to your <style> or style.css ══════════ -->
-<style>
-/* ── ABOUT SECTION ENHANCED ── */
-#about { background: #fff; padding: 90px 0; }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 60px;
-  align-items: start;
-}
-@media (max-width: 900px) {
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
-}
+  <!-- ══════════════ HTML — replace your about section ══════════════ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Get to know me</p>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-grid">
 
-/* Avatar */
-.avatar-box {
-  position: relative;
-  width: 180px; height: 180px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid #fff;
-  box-shadow: 0 8px 32px rgba(26,86,219,0.18);
-  background: linear-gradient(135deg, #1a56db 0%, #4d96ff 100%);
-  flex-shrink: 0;
-}
-.avatar-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.avatar-placeholder {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Lora', serif;
-  font-size: 3rem; font-weight: 600;
-  color: #fff; letter-spacing: 2px;
-}
+        <!-- LEFT: Avatar + Stats -->
+        <div class="about-avatar reveal">
+          <div class="avatar-box">
+            <div class="avatar-placeholder">JA</div>
+            <img src="Anvesh.jpg" alt="Jangam Anvesh" />
+          </div>
 
-/* Stats */
-.about-stats {
-  display: flex; gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 24px;
-}
-.stat-card {
-  background: #f8f9fc;
-  border: 1px solid #e4e7f0;
-  border-radius: 12px;
-  padding: 14px 18px;
-  text-align: center;
-  flex: 1; min-width: 80px;
-}
-.stat-card strong {
-  display: block; font-size: 1.5rem;
-  font-weight: 700; color: #1a56db;
-}
-.stat-card span {
-  font-size: 0.72rem; color: #6b7394;
-  font-weight: 500; line-height: 1.4;
-  display: block; margin-top: 3px;
-}
-
-/* Company badge — clickable */
-.company-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: linear-gradient(135deg, #e8f0fe, #dbeafe);
-  border: 1.5px solid #93c5fd;
-  border-radius: 30px;
-  padding: 7px 16px 7px 10px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.22s;
-  margin-bottom: 18px;
-  position: relative;
-}
-.company-badge:hover {
-  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-  box-shadow: 0 4px 16px rgba(26,86,219,0.2);
-  transform: translateY(-1px);
-}
-.company-badge .cb-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: #16a34a;
-  box-shadow: 0 0 0 3px rgba(22,163,74,0.25);
-  animation: pulse-dot 2s infinite;
-}
-@keyframes pulse-dot {
-  0%,100% { box-shadow: 0 0 0 3px rgba(22,163,74,0.25); }
-  50%      { box-shadow: 0 0 0 6px rgba(22,163,74,0.1); }
-}
-.company-badge .cb-text { font-size: 0.82rem; font-weight: 600; color: #1a56db; }
-.company-badge .cb-cam  { font-size: 0.75rem; color: #6b7394; margin-left: 2px; }
-.company-badge .cb-tag  {
-  background: #fff; border: 1px solid #93c5fd;
-  border-radius: 20px; padding: 2px 8px;
-  font-size: 0.7rem; font-weight: 600; color: #1a56db;
-}
-
-/* About text */
-.about-text h3 {
-  font-size: 1.4rem; font-weight: 700; color: #1a1f2e;
-  margin-bottom: 16px; line-height: 1.35;
-}
-.about-text p { color: #4a5568; line-height: 1.8; margin-bottom: 14px; font-size: 0.95rem; }
-.about-text p strong { color: #1a1f2e; }
-.about-text p em { color: #1a56db; font-style: normal; font-weight: 600; }
-
-/* Journey timeline strip */
-.journey-strip {
-  background: linear-gradient(135deg, #f8f9fc 0%, #eff6ff 100%);
-  border: 1px solid #e4e7f0;
-  border-radius: 14px;
-  padding: 20px 24px;
-  margin: 20px 0;
-  position: relative; overflow: hidden;
-}
-.journey-strip::before {
-  content: '';
-  position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-  background: linear-gradient(180deg, #1a56db, #4d96ff);
-  border-radius: 4px 0 0 4px;
-}
-.journey-title {
-  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px;
-  color: #1a56db; font-weight: 700; margin-bottom: 14px;
-}
-.journey-milestones {
-  display: flex; flex-wrap: wrap; gap: 8px;
-}
-.j-chip {
-  display: flex; align-items: center; gap: 6px;
-  background: #fff; border: 1px solid #e4e7f0;
-  border-radius: 20px; padding: 5px 12px;
-  font-size: 0.78rem; color: #1a1f2e; font-weight: 500;
-}
-.j-chip .j-year { color: #1a56db; font-weight: 700; font-size: 0.72rem; }
-.j-chip .j-dot  { width: 5px; height: 5px; border-radius: 50%; background: #1a56db; }
-
-/* Tags */
-.about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-.tag {
-  background: #eff6ff; color: #1a56db;
-  border: 1px solid #bfdbfe;
-  border-radius: 20px; padding: 5px 14px;
-  font-size: 0.78rem; font-weight: 600;
-}
-
-/* ════════════════════════════════════════
-   OFFICE PHOTO CAROUSEL MODAL
-════════════════════════════════════════ */
-.carousel-overlay {
-  display: none;
-  position: fixed; inset: 0; z-index: 9999;
-  background: rgba(10,15,30,0.92);
-  backdrop-filter: blur(8px);
-  align-items: center; justify-content: center;
-  flex-direction: column;
-  padding: 20px;
-}
-.carousel-overlay.open { display: flex; }
-
-.carousel-wrapper {
-  position: relative;
-  width: 100%; max-width: 860px;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #0d1117;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-}
-
-/* Header bar */
-.carousel-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 20px;
-  background: rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.carousel-header-left { display: flex; align-items: center; gap: 10px; }
-.carousel-company-dot {
-  width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
-  box-shadow: 0 0 6px rgba(34,197,94,0.6);
-}
-.carousel-company-name { font-size: 0.88rem; font-weight: 700; color: #fff; }
-.carousel-company-sub  { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
-.carousel-close {
-  width: 34px; height: 34px; border-radius: 50%;
-  background: rgba(255,255,255,0.08); border: none;
-  color: #fff; font-size: 1.1rem; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s;
-}
-.carousel-close:hover { background: rgba(255,255,255,0.18); }
-
-/* Image stage */
-.carousel-stage {
-  position: relative;
-  width: 100%; aspect-ratio: 16/9;
-  background: #000;
-  overflow: hidden;
-}
-.carousel-slide {
-  position: absolute; inset: 0;
-  opacity: 0; transition: opacity 0.5s ease;
-  display: flex; align-items: center; justify-content: center;
-}
-.carousel-slide.active { opacity: 1; }
-.carousel-slide img {
-  width: 100%; height: 100%; object-fit: cover;
-  user-select: none; pointer-events: none;
-}
-
-/* Caption overlay */
-.slide-caption {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, transparent 100%);
-  padding: 32px 20px 16px;
-  color: #fff; font-size: 0.82rem;
-}
-
-/* Placeholder slide (shown when no real image) */
-.slide-placeholder {
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 10px; color: rgba(255,255,255,0.35);
-  font-size: 0.85rem; text-align: center; padding: 20px;
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-}
-.slide-placeholder .ph-icon { font-size: 2.5rem; opacity: 0.3; }
-.slide-placeholder .ph-label { font-weight: 600; color: rgba(255,255,255,0.5); }
-
-/* Prev / Next arrows */
-.carousel-btn {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 42px; height: 42px; border-radius: 50%;
-  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
-  color: #fff; font-size: 1rem; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.2s; z-index: 10;
-}
-.carousel-btn:hover { background: rgba(255,255,255,0.25); }
-.carousel-btn.prev { left: 14px; }
-.carousel-btn.next { right: 14px; }
-
-/* Dots */
-.carousel-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 20px;
-  background: rgba(255,255,255,0.03);
-  border-top: 1px solid rgba(255,255,255,0.07);
-}
-.carousel-dots { display: flex; gap: 6px; align-items: center; }
-.c-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-  transition: all 0.25s; cursor: pointer; border: none;
-}
-.c-dot.active { background: #4d96ff; width: 20px; border-radius: 4px; }
-.carousel-counter { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
-
-/* Keyboard hint */
-.carousel-hint {
-  margin-top: 12px; font-size: 0.72rem;
-  color: rgba(255,255,255,0.3); text-align: center;
-}
-
-/* ── ADD PHOTOS NOTICE (shown when using placeholders) ── */
-.photo-notice {
-  background: #fffbeb; border: 1px solid #fcd34d;
-  border-radius: 10px; padding: 10px 16px;
-  font-size: 0.78rem; color: #92400e;
-  margin-top: 8px; display: flex; gap: 8px; align-items: flex-start;
-}
-</style>
-
-<!-- ══════════════ HTML — replace your about section ══════════════ -->
-<section id="about" class="section">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="section-label">Get to know me</p>
-      <h2 class="section-title">About Me</h2>
-    </div>
-    <div class="about-grid">
-
-      <!-- LEFT: Avatar + Stats -->
-      <div class="about-avatar reveal">
-        <div class="avatar-box">
-          <div class="avatar-placeholder">JA</div>
-          <img src="Anvesh.jpg" alt="Jangam Anvesh" />
+          <div class="about-stats">
+            <div class="stat-card reveal delay-1">
+              <strong>3.6</strong>
+              <span>Years Experience</span>
+            </div>
+            <div class="stat-card reveal delay-2">
+              <strong>10+</strong>
+              <span>Projects Delivered</span>
+            </div>
+            <div class="stat-card reveal delay-3">
+              <strong>99.9%</strong>
+              <span>Uptime Achieved</span>
+            </div>
+          </div>
+          <!-- ADD PHOTO NOTICE (remove once you add real photos) -->
+          <!-- <div class="photo-notice reveal delay-4">
+            <span>📷</span>
+            <span>To add office photos: put <strong>office1.jpg … office15.jpg</strong> in your project folder, then
+              update the <code>officePhotos</code> array in the script below.</span>
+          </div> -->
         </div>
 
-        <div class="about-stats">
-          <div class="stat-card reveal delay-1">
-            <strong>3.6</strong>
-            <span>Years Experience</span>
-          </div>
-          <div class="stat-card reveal delay-2">
-            <strong>10+</strong>
-            <span>Projects Delivered</span>
-          </div>
-          <div class="stat-card reveal delay-3">
-            <strong>99.9%</strong>
-            <span>Uptime Achieved</span>
-          </div>
-        </div>
+        <!-- RIGHT: Bio -->
+        <div class="about-text reveal delay-2">
 
-        <!-- ADD PHOTO NOTICE (remove once you add real photos) -->
-        <div class="photo-notice reveal delay-4">
-          <span>📷</span>
-          <span>To add office photos: put <strong>office1.jpg … office15.jpg</strong> in your project folder, then update the <code>officePhotos</code> array in the script below.</span>
+          <!-- Clickable company badge — opens carousel -->
+          <button class="company-badge" id="openCarouselBtn" title="See our office photos">
+            <span class="cb-dot"></span>
+            <span class="cb-text">Infinite Computer Solutions</span>
+            <span class="cb-cam">📷</span>
+            <span class="cb-tag">View Office</span>
+          </button>
+
+          <h3>Full Stack .NET &amp; Angular Developer</h3>
+
+          <p>
+            My journey began in <strong>September 2022</strong> as a fresher who believed
+            great software is built one commit at a time. Since then, I've grown into a
+            confident full-stack engineer — shipping production features, leading migrations,
+            and solving hard problems for enterprise clients across the globe.
+          </p>
+
+          <p>
+            At <em>Infinite Computer Solutions</em>, I'm a core contributor to the
+            <strong>BrassRing Recruitment Suite</strong> — a mission-critical HR platform
+            trusted by Fortune 500 companies. I architect backend APIs with
+            <strong>C# &amp; .NET Core</strong>, build blazing-fast frontends in
+            <strong>Angular 19 &amp; React</strong>, and own the full DevOps pipeline
+            via <strong>Azure DevOps CI/CD</strong>.
+          </p>
+
+          <p>
+            Some career highlights: I <strong>led a complete AngularJS 1.8 → Angular 19
+              migration</strong> (standalone architecture, micro-frontends, RxJS, PrimeNG),
+            shipped a <strong>Rasa AI chatbot</strong> for intelligent job matching, built
+            a <strong>GDPR-compliant cookie consent</strong> system, reduced bug resolution
+            time by <strong>20%</strong>, and maintained <strong>99.9% uptime</strong>
+            across production environments. Every feature I ship is secured with JWT,
+            BCrypt, CSRF tokens, and HTTPS enforcement.
+          </p>
+
+          <!-- Journey milestones strip -->
+          <div class="journey-strip reveal delay-3">
+            <div class="journey-title">⚡ Career Journey — Sep 2022 → Present</div>
+            <div class="journey-milestones">
+              <div class="j-chip"><span class="j-dot"></span><span class="j-year">Sep '22</span> Joined as .NET Full
+                Stack Dev</div>
+              <div class="j-chip"><span class="j-dot"></span><span class="j-year">2023</span> Led Angular 19 Migration
+              </div>
+              <div class="j-chip"><span class="j-dot"></span><span class="j-year">2023</span> Built Rasa AI Chatbot
+              </div>
+              <div class="j-chip"><span class="j-dot"></span><span class="j-year">2024</span> GDPR Compliance Module
+              </div>
+              <div class="j-chip"><span class="j-dot"></span><span class="j-year">2024</span> Micro-Frontend
+                Architecture</div>
+              <div class="j-chip"><span class="j-dot"></span><span class="j-year">2025</span> 99.9% Uptime &amp; Perf+
+              </div>
+            </div>
+          </div>
+
+          <div class="about-tags">
+            <span class="tag">.NET Core</span>
+            <span class="tag">C#</span>
+            <span class="tag">Angular 19</span>
+            <span class="tag">React</span>
+            <span class="tag">SQL Server</span>
+            <span class="tag">Azure DevOps</span>
+            <span class="tag">Jira</span>
+            <span class="tag">Docker</span>
+            <span class="tag">RxJS</span>
+            <span class="tag">Micro Frontend</span>
+            <span class="tag">JWT / BCrypt</span>
+            <span class="tag">Entity Framework</span>
+          </div>
+
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- RIGHT: Bio -->
-      <div class="about-text reveal delay-2">
+  <!-- ═══════════════════════ OFFICE PHOTO CAROUSEL MODAL ═══════════════════════ -->
+  <div class="carousel-overlay" id="carouselOverlay" role="dialog" aria-modal="true"
+    aria-label="Office photos at Infinite Computer Solutions">
 
-        <!-- Clickable company badge — opens carousel -->
-        <button class="company-badge" id="openCarouselBtn" title="See our office photos">
-          <span class="cb-dot"></span>
-          <span class="cb-text">Infinite Computer Solutions</span>
-          <span class="cb-cam">📷</span>
-          <span class="cb-tag">View Office</span>
-        </button>
+    <div class="carousel-wrapper">
 
-        <h3>Full Stack .NET &amp; Angular Developer</h3>
-
-        <p>
-          My journey began in <strong>September 2022</strong> as a fresher who believed
-          great software is built one commit at a time. Since then, I've grown into a
-          confident full-stack engineer — shipping production features, leading migrations,
-          and solving hard problems for enterprise clients across the globe.
-        </p>
-
-        <p>
-          At <em>Infinite Computer Solutions</em>, I'm a core contributor to the
-          <strong>BrassRing Recruitment Suite</strong> — a mission-critical HR platform
-          trusted by Fortune 500 companies. I architect backend APIs with
-          <strong>C# &amp; .NET Core</strong>, build blazing-fast frontends in
-          <strong>Angular 19 &amp; React</strong>, and own the full DevOps pipeline
-          via <strong>Azure DevOps CI/CD</strong>.
-        </p>
-
-        <p>
-          Some career highlights: I <strong>led a complete AngularJS 1.8 → Angular 19
-          migration</strong> (standalone architecture, micro-frontends, RxJS, PrimeNG),
-          shipped a <strong>Rasa AI chatbot</strong> for intelligent job matching, built
-          a <strong>GDPR-compliant cookie consent</strong> system, reduced bug resolution
-          time by <strong>20%</strong>, and maintained <strong>99.9% uptime</strong>
-          across production environments. Every feature I ship is secured with JWT,
-          BCrypt, CSRF tokens, and HTTPS enforcement.
-        </p>
-
-        <!-- Journey milestones strip -->
-        <div class="journey-strip reveal delay-3">
-          <div class="journey-title">⚡ Career Journey — Sep 2022 → Present</div>
-          <div class="journey-milestones">
-            <div class="j-chip"><span class="j-dot"></span><span class="j-year">Sep '22</span> Joined as .NET Full Stack Dev</div>
-            <div class="j-chip"><span class="j-dot"></span><span class="j-year">2023</span> Led Angular 19 Migration</div>
-            <div class="j-chip"><span class="j-dot"></span><span class="j-year">2023</span> Built Rasa AI Chatbot</div>
-            <div class="j-chip"><span class="j-dot"></span><span class="j-year">2024</span> GDPR Compliance Module</div>
-            <div class="j-chip"><span class="j-dot"></span><span class="j-year">2024</span> Micro-Frontend Architecture</div>
-            <div class="j-chip"><span class="j-dot"></span><span class="j-year">2025</span> 99.9% Uptime &amp; Perf+</div>
+      <!-- Header -->
+      <div class="carousel-header">
+        <div class="carousel-header-left">
+          <div class="carousel-company-dot"></div>
+          <div>
+            <div class="carousel-company-name">Infinite Computer Solutions</div>
+            <div class="carousel-company-sub">Life at the office 📸</div>
           </div>
         </div>
-
-        <div class="about-tags">
-          <span class="tag">.NET Core</span>
-          <span class="tag">C#</span>
-          <span class="tag">Angular 19</span>
-          <span class="tag">React</span>
-          <span class="tag">SQL Server</span>
-          <span class="tag">Azure DevOps</span>
-          <span class="tag">Jira</span>
-          <span class="tag">Docker</span>
-          <span class="tag">RxJS</span>
-          <span class="tag">Micro Frontend</span>
-          <span class="tag">JWT / BCrypt</span>
-          <span class="tag">Entity Framework</span>
-        </div>
-
+        <button class="carousel-close" id="closeCarouselBtn" aria-label="Close">✕</button>
       </div>
+
+      <!-- Stage -->
+      <div class="carousel-stage" id="carouselStage">
+        <!-- Slides injected by JS -->
+        <button class="carousel-btn prev" id="prevBtn" aria-label="Previous">&#8592;</button>
+        <button class="carousel-btn next" id="nextBtn" aria-label="Next">&#8594;</button>
+      </div>
+
+      <!-- Footer dots + counter -->
+      <div class="carousel-footer">
+        <div class="carousel-dots" id="carouselDots"></div>
+        <div class="carousel-counter" id="carouselCounter">1 / 1</div>
+      </div>
+
     </div>
+
+    <div class="carousel-hint">Press ← → arrow keys to navigate &nbsp;·&nbsp; Esc to close</div>
   </div>
-</section>
 
-<!-- ═══════════════════════ OFFICE PHOTO CAROUSEL MODAL ═══════════════════════ -->
-<div class="carousel-overlay" id="carouselOverlay" role="dialog" aria-modal="true" aria-label="Office photos at Infinite Computer Solutions">
 
-  <div class="carousel-wrapper">
 
-    <!-- Header -->
-    <div class="carousel-header">
-      <div class="carousel-header-left">
-        <div class="carousel-company-dot"></div>
+
+  <!-- ══════════ HTML ══════════ -->
+
+
+  <!-- ══════════ HTML ══════════ -->
+  <!-- Add this section in your index.html after #achievements or wherever fits -->
+  <!-- Also add the nav link:  <li><a href="#education" class="nav-link">Education</a></li> -->
+
+  <section id="education" class="section">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <p class="section-label">Academic background</p>
+        <h2 class="section-title">Education</h2>
+      </div>
+
+      <div class="edu-layout">
+
+        <!-- ═══ LEFT: Degree + Schooling ═══ -->
         <div>
-          <div class="carousel-company-name">Infinite Computer Solutions</div>
-          <div class="carousel-company-sub">Life at the office 📸</div>
-        </div>
-      </div>
-      <button class="carousel-close" id="closeCarouselBtn" aria-label="Close">✕</button>
-    </div>
-
-    <!-- Stage -->
-    <div class="carousel-stage" id="carouselStage">
-      <!-- Slides injected by JS -->
-      <button class="carousel-btn prev" id="prevBtn" aria-label="Previous">&#8592;</button>
-      <button class="carousel-btn next" id="nextBtn" aria-label="Next">&#8594;</button>
-    </div>
-
-    <!-- Footer dots + counter -->
-    <div class="carousel-footer">
-      <div class="carousel-dots" id="carouselDots"></div>
-      <div class="carousel-counter" id="carouselCounter">1 / 1</div>
-    </div>
-
-  </div>
-
-  <div class="carousel-hint">Press ← → arrow keys to navigate &nbsp;·&nbsp; Esc to close</div>
-</div>
-
-
-<!-- ══════════════ SCRIPT — paste before </body> ══════════════ -->
-<script>
-(function () {
-
-  /* ═══════════════════════════════════════════════════════
-     OFFICE PHOTOS — update these paths to your real images
-     Put photos in the same folder as index.html
-     Example: 'office1.jpg', 'office2.jpg', etc.
-  ══════════════════════════════════════════════════════ */
-var officePhotos = [
-    { src: 'IMG_2956.jpeg',  caption: 'Our workspace at Infinite Computer Solutions' },
-    { src: 'IMG_2957.jpeg',  caption: 'Team collaboration sessions' },
-    { src: 'IMG_4744.jpeg',  caption: 'Hackathon & innovation days' },
-    { src: 'IMG_4791.jpeg',  caption: 'Sprint planning & stand-ups' },
-    { src: 'IMG_4821.jpeg',  caption: 'Celebrating project milestones 🎉' },
-    { src: 'IMG_4832.jpeg',  caption: 'Pair programming & code reviews' },
-    { src: 'IMG_5433.png',  caption: 'Tech talk sessions' },
-    { src: 'IMG_5434.jpeg',  caption: 'Team lunch & culture moments' },
-    { src: 'IMG_5435.jpeg',  caption: 'Client demo day' },
-    { src: 'IMG_5436.jpeg', caption: 'BrassRing squad' },
-    { src: 'IMG_5437.jpeg', caption: 'Onboarding & training' },
-    { src: 'IMG_5776.jpeg', caption: 'Friday fun & team activities' },
-  ];
-
-  var current = 0;
-  var slides  = [];
-  var dots    = [];
-  var stage   = document.getElementById('carouselStage');
-  var overlay = document.getElementById('carouselOverlay');
-  var counter = document.getElementById('carouselCounter');
-  var dotsWrap = document.getElementById('carouselDots');
-
-  /* Build slides */
-  officePhotos.forEach(function (photo, i) {
-    var slide = document.createElement('div');
-    slide.className = 'carousel-slide' + (i === 0 ? ' active' : '');
-
-    /* Try to load image; if it fails show a placeholder */
-    var img = new Image();
-    img.onload = function () {
-      slide.innerHTML =
-        '<img src="' + photo.src + '" alt="' + photo.caption + '" />' +
-        '<div class="slide-caption">' + photo.caption + '</div>';
-    };
-    img.onerror = function () {
-      slide.innerHTML =
-        '<div class="slide-placeholder">' +
-          '<div class="ph-icon">🏢</div>' +
-          '<div class="ph-label">Photo ' + (i + 1) + '</div>' +
-          '<div>' + photo.caption + '</div>' +
-          '<div style="font-size:0.7rem;margin-top:6px;opacity:0.5">Add ' + photo.src + ' to your project folder</div>' +
-        '</div>';
-    };
-    img.src = photo.src;
-
-    /* Default placeholder until load resolves */
-    slide.innerHTML =
-      '<div class="slide-placeholder">' +
-        '<div class="ph-icon">🏢</div>' +
-        '<div class="ph-label">Photo ' + (i + 1) + '</div>' +
-        '<div>' + photo.caption + '</div>' +
-        '<div style="font-size:0.7rem;margin-top:6px;opacity:0.5">Add ' + photo.src + ' to your project folder</div>' +
-      '</div>';
-
-    stage.insertBefore(slide, document.getElementById('prevBtn'));
-    slides.push(slide);
-
-    /* Dot */
-    var dot = document.createElement('button');
-    dot.className = 'c-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', 'Go to photo ' + (i + 1));
-    dot.addEventListener('click', function () { goTo(i); });
-    dotsWrap.appendChild(dot);
-    dots.push(dot);
-  });
-
-  function goTo(n) {
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = (n + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-    counter.textContent = (current + 1) + ' / ' + slides.length;
-  }
-
-  document.getElementById('prevBtn').addEventListener('click', function () { goTo(current - 1); });
-  document.getElementById('nextBtn').addEventListener('click', function () { goTo(current + 1); });
-
-  /* Open */
-  document.getElementById('openCarouselBtn').addEventListener('click', function () {
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    goTo(0);
-  });
-
-  /* Close */
-  function closeCarousel() {
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.getElementById('closeCarouselBtn').addEventListener('click', closeCarousel);
-  overlay.addEventListener('click', function (e) {
-    if (e.target === overlay) closeCarousel();
-  });
-
-  /* Keyboard */
-  document.addEventListener('keydown', function (e) {
-    if (!overlay.classList.contains('open')) return;
-    if (e.key === 'ArrowLeft')  goTo(current - 1);
-    if (e.key === 'ArrowRight') goTo(current + 1);
-    if (e.key === 'Escape')     closeCarousel();
-  });
-
-  /* Auto-advance every 4s when open */
-  var autoTimer;
-  overlay.addEventListener('transitionend', function () {});
-  var observer = new MutationObserver(function () {
-    if (overlay.classList.contains('open')) {
-      autoTimer = setInterval(function () { goTo(current + 1); }, 4000);
-    } else {
-      clearInterval(autoTimer);
-    }
-  });
-  observer.observe(overlay, { attributes: true, attributeFilter: ['class'] });
-
-  /* Update counter on load */
-  counter.textContent = '1 / ' + slides.length;
-
-})();
-</script>
-<style>
-
-/* ── SECTION BASE ── */
-#education {
-  padding: 90px 0;
-  background: #fff;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Subtle grid background */
-#education::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(26,86,219,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26,86,219,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-}
-
-/* ── LAYOUT ── */
-.edu-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: start;
-  position: relative;
-}
-@media (max-width: 860px) {
-  .edu-layout { grid-template-columns: 1fr; gap: 48px; }
-}
-
-/* ── COLUMN HEADERS ── */
-.edu-col-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 32px;
-}
-.edu-col-icon {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #1a56db, #4d96ff);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 1rem;
-  flex-shrink: 0;
-}
-.edu-col-title {
-  font-size: 1rem; font-weight: 700;
-  color: #1a1f2e; letter-spacing: 0.3px;
-}
-.edu-col-sub {
-  font-size: 0.75rem; color: #6b7394;
-  margin-top: 1px;
-}
-
-/* ── EDUCATION CARD ── */
-.edu-card {
-  background: #fff;
-  border: 1px solid #e4e7f0;
-  border-radius: 18px;
-  padding: 28px 28px 24px;
-  position: relative;
-  overflow: hidden;
-  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
-  cursor: default;
-  margin-bottom: 20px;
-}
-.edu-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 4px;
-  background: linear-gradient(90deg, #1a56db, #4d96ff);
-  border-radius: 18px 18px 0 0;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.edu-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(26,86,219,0.1);
-  border-color: rgba(26,86,219,0.2);
-}
-.edu-card:hover::before { opacity: 1; }
-
-/* Card top row */
-.edu-card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-.edu-inst-logo {
-  width: 52px; height: 52px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #eff6ff, #dbeafe);
-  border: 1px solid #bfdbfe;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem;
-  flex-shrink: 0;
-}
-.edu-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-.edu-badge.completed {
-  background: #dcfce7;
-  color: #15803d;
-  border: 1px solid #bbf7d0;
-}
-.edu-badge.ongoing {
-  background: #eff6ff;
-  color: #1a56db;
-  border: 1px solid #bfdbfe;
-  animation: badge-pulse 2.5s infinite;
-}
-@keyframes badge-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(26,86,219,0.15); }
-  50%       { box-shadow: 0 0 0 5px rgba(26,86,219,0); }
-}
-
-/* Card content */
-.edu-degree {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #1a1f2e;
-  line-height: 1.35;
-  margin-bottom: 4px;
-}
-.edu-institution {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: #1a56db;
-  margin-bottom: 2px;
-}
-.edu-location {
-  font-size: 0.78rem;
-  color: #6b7394;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-bottom: 14px;
-}
-
-/* Divider */
-.edu-divider {
-  height: 1px;
-  background: linear-gradient(90deg, #e4e7f0, transparent);
-  margin: 14px 0;
-}
-
-/* Meta row */
-.edu-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 16px;
-}
-.edu-meta-chip {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background: #f8f9fc;
-  border: 1px solid #e4e7f0;
-  border-radius: 8px;
-  padding: 5px 11px;
-  font-size: 0.77rem;
-  color: #4a5568;
-}
-.edu-meta-chip i {
-  color: #1a56db;
-  font-size: 0.75rem;
-}
-.edu-meta-chip strong {
-  color: #1a1f2e;
-  font-weight: 700;
-}
-
-/* Subjects list */
-.edu-subjects-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #6b7394;
-  margin-bottom: 9px;
-}
-.edu-subjects {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.edu-subject-tag {
-  background: #eff6ff;
-  color: #1a56db;
-  border: 1px solid #bfdbfe;
-  border-radius: 6px;
-  padding: 3px 10px;
-  font-size: 0.74rem;
-  font-weight: 600;
-  transition: background 0.2s, transform 0.2s;
-}
-.edu-subject-tag:hover {
-  background: #dbeafe;
-  transform: translateY(-1px);
-}
-
-/* ── HIGHLIGHT STAT STRIP ── */
-.edu-stat-strip {
-  display: flex;
-  gap: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #e4e7f0;
-  margin-top: 16px;
-}
-.edu-stat-item {
-  flex: 1;
-  padding: 12px 8px;
-  text-align: center;
-  background: #f8f9fc;
-  border-right: 1px solid #e4e7f0;
-  transition: background 0.2s;
-}
-.edu-stat-item:last-child { border-right: none; }
-.edu-stat-item:hover { background: #eff6ff; }
-.edu-stat-val {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #1a56db;
-  display: block;
-  line-height: 1;
-}
-.edu-stat-lbl {
-  font-size: 0.67rem;
-  color: #6b7394;
-  margin-top: 3px;
-  display: block;
-  font-weight: 500;
-}
-
-/* ── SCHOOL CARD (12th / 10th) ── */
-.school-card {
-  background: #fff;
-  border: 1px solid #e4e7f0;
-  border-radius: 14px;
-  padding: 20px 22px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 14px;
-  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
-  position: relative;
-  overflow: hidden;
-}
-.school-card::after {
-  content: '';
-  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-  background: linear-gradient(180deg, #1a56db, #4d96ff);
-  border-radius: 3px 0 0 3px;
-}
-.school-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(26,86,219,0.09);
-  border-color: rgba(26,86,219,0.2);
-}
-.school-icon {
-  width: 44px; height: 44px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #eff6ff, #dbeafe);
-  border: 1px solid #bfdbfe;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; flex-shrink: 0;
-}
-.school-name {
-  font-size: 0.9rem; font-weight: 700; color: #1a1f2e;
-  line-height: 1.3;
-}
-.school-board {
-  font-size: 0.75rem; color: #1a56db; font-weight: 600;
-  margin-top: 2px;
-}
-.school-year {
-  font-size: 0.72rem; color: #6b7394; margin-top: 1px;
-}
-.school-percent {
-  margin-left: auto;
-  text-align: right;
-  flex-shrink: 0;
-}
-.school-percent strong {
-  display: block;
-  font-size: 1.15rem; font-weight: 800; color: #1a56db;
-  line-height: 1;
-}
-.school-percent span {
-  font-size: 0.7rem; color: #6b7394;
-}
-
-/* ── CERTIFICATIONS PLACEHOLDER ── */
-.cert-coming-soon {
-  border: 2px dashed #bfdbfe;
-  border-radius: 14px;
-  padding: 32px 24px;
-  text-align: center;
-  background: linear-gradient(135deg, #f8faff, #eff6ff);
-  color: #6b7394;
-}
-.cert-cs-icon {
-  font-size: 2.2rem; margin-bottom: 10px;
-  opacity: 0.5;
-}
-.cert-cs-title {
-  font-size: 0.92rem; font-weight: 700; color: #1a56db;
-  margin-bottom: 6px;
-}
-.cert-cs-desc {
-  font-size: 0.8rem; color: #6b7394; line-height: 1.6;
-}
-.cert-cs-chips {
-  display: flex; flex-wrap: wrap; gap: 6px;
-  justify-content: center; margin-top: 14px;
-}
-.cert-cs-chip {
-  background: #fff; border: 1px solid #bfdbfe;
-  border-radius: 20px; padding: 4px 12px;
-  font-size: 0.72rem; font-weight: 600; color: #1a56db;
-  opacity: 0.7;
-}
-
-/* ── FLOATING DEGREE BADGE ── */
-.degree-float-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: linear-gradient(135deg, #1a56db, #4d96ff);
-  color: #fff;
-  border-radius: 8px;
-  padding: 4px 12px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin-bottom: 6px;
-}
-
-</style>
-
-<!-- ══════════ HTML ══════════ -->
-<!-- Add this section in your index.html after #achievements or wherever fits -->
-<!-- Also add the nav link:  <li><a href="#education" class="nav-link">Education</a></li> -->
-
-<section id="education" class="section">
-  <div class="container">
-
-    <div class="section-header reveal">
-      <p class="section-label">Academic background</p>
-      <h2 class="section-title">Education</h2>
-    </div>
-
-    <div class="edu-layout">
-
-      <!-- ═══ LEFT: Degree + Schooling ═══ -->
-      <div>
-        <div class="edu-col-label reveal">
-          <div class="edu-col-icon"><i class="fas fa-graduation-cap"></i></div>
-          <div>
-            <div class="edu-col-title">Academic Qualifications</div>
-            <div class="edu-col-sub">Degree &amp; Schooling</div>
+          <div class="edu-col-label reveal">
+            <div class="edu-col-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div>
+              <div class="edu-col-title">Academic Qualifications</div>
+              <div class="edu-col-sub">Degree &amp; Schooling</div>
+            </div>
           </div>
+
+          <!-- B.Tech Card -->
+          <div class="edu-card reveal delay-1">
+            <div class="edu-card-top">
+              <div class="edu-inst-logo">🎓</div>
+              <span class="edu-badge completed">✓ Completed</span>
+            </div>
+
+            <div class="degree-float-badge">
+              <i class="fas fa-star"></i> B.Tech — Electrical & Electronics &amp; Engineering
+            </div>
+
+            <div class="edu-degree">Bachelor of Technology<br />Electrical & Electronics &amp; Engineering</div>
+            <div class="edu-institution">
+              <!-- ⬇ UPDATE: Replace with your actual college name -->
+              Narasaraopeta Engineering College
+            </div>
+            <div class="edu-location">
+              <i class="fas fa-map-marker-alt" style="font-size:0.7rem;color:#1a56db;"></i>
+              <!-- ⬇ UPDATE: Your college city, state -->
+              Narasaraopet, Andhra Pradesh, India
+            </div>
+
+            <div class="edu-divider"></div>
+
+            <div class="edu-meta">
+              <div class="edu-meta-chip">
+                <i class="fas fa-calendar-alt"></i>
+                <!-- ⬇ UPDATE: Your actual years -->
+                <span><strong>2019 – 2022</strong></span>
+              </div>
+              <div class="edu-meta-chip">
+                <i class="fas fa-award"></i>
+                <!-- ⬇ UPDATE: Your actual CGPA/percentage -->
+                <span>CGPA <strong>7.22 / 10</strong></span>
+              </div>
+              <div class="edu-meta-chip">
+                <i class="fas fa-book"></i>
+                <span>3-Year Full Time</span>
+              </div>
+            </div>
+
+            <div class="edu-subjects-label">Key Subjects</div>
+            <div class="edu-subjects">
+              <span class="edu-subject-tag">Data Structures</span>
+              <span class="edu-subject-tag">DBMS</span>
+              <span class="edu-subject-tag">OOP with Java</span>
+              <span class="edu-subject-tag">Operating Systems</span>
+              <span class="edu-subject-tag">Electrical Networks</span>
+              <span class="edu-subject-tag">Electrical Machines</span>
+              <span class="edu-subject-tag">Power Electronics</span>
+              <span class="edu-subject-tag">Control Systems</span>
+            </div>
+
+            <div class="edu-stat-strip">
+              <div class="edu-stat-item">
+                <span class="edu-stat-val">3</span>
+                <span class="edu-stat-lbl">Years</span>
+              </div>
+              <div class="edu-stat-item">
+                <!-- ⬇ UPDATE: Your semester count -->
+                <span class="edu-stat-val">6</span>
+                <span class="edu-stat-lbl">Semesters</span>
+              </div>
+              <div class="edu-stat-item">
+                <!-- ⬇ UPDATE: Your CGPA or % -->
+                <span class="edu-stat-val">7.22</span>
+                <span class="edu-stat-lbl">CGPA</span>
+              </div>
+              <div class="edu-stat-item">
+                <span class="edu-stat-val">2022</span>
+                <span class="edu-stat-lbl">Graduated</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12th -->
+          <div class="school-card reveal delay-2">
+            <div class="school-icon">📚</div>
+            <div>
+              <div class="school-name">
+                <!-- ⬇ UPDATE: Your 12th school name -->
+                Newtons Institute of Engineering
+              </div>
+              <div class="school-board">Electrical & Electronics &amp; Engineering</div>
+              <!-- ⬇ UPDATE: Your year -->
+              <div class="school-year">Class XII &nbsp;·&nbsp; 2013 – 2018</div>
+            </div>
+            <div class="school-percent">
+              <!-- ⬇ UPDATE: Your actual percentage -->
+              <strong>69.4%</strong>
+              <span>Score</span>
+            </div>
+          </div>
+
+          <!-- 10th -->
+          <div class="school-card reveal delay-3">
+            <div class="school-icon">🏫</div>
+            <div>
+              <div class="school-name">
+                <!-- ⬇ UPDATE: Your 10th school name -->
+                Loyola High School
+              </div>
+              <div class="school-board">SSC &nbsp;·&nbsp; Andhra Pradesh State Board</div>
+              <!-- ⬇ UPDATE: Your year -->
+              <div class="school-year">Class X &nbsp;·&nbsp; 2012 – 2013</div>
+            </div>
+            <div class="school-percent">
+              <!-- ⬇ UPDATE: Your actual percentage -->
+              <strong>8.2 CGPA</strong>
+              <span>Score</span>
+            </div>
+          </div>
+
         </div>
 
-        <!-- B.Tech Card -->
-        <div class="edu-card reveal delay-1">
-          <div class="edu-card-top">
-            <div class="edu-inst-logo">🎓</div>
-            <span class="edu-badge completed">✓ Completed</span>
-          </div>
-
-          <div class="degree-float-badge">
-            <i class="fas fa-star"></i> B.Tech — Computer Science &amp; Engineering
-          </div>
-
-          <div class="edu-degree">Bachelor of Technology<br/>Computer Science &amp; Engineering</div>
-          <div class="edu-institution">
-            <!-- ⬇ UPDATE: Replace with your actual college name -->
-            Your College Name Here
-          </div>
-          <div class="edu-location">
-            <i class="fas fa-map-marker-alt" style="font-size:0.7rem;color:#1a56db;"></i>
-            <!-- ⬇ UPDATE: Your college city, state -->
-            City, Telangana, India
-          </div>
-
-          <div class="edu-divider"></div>
-
-          <div class="edu-meta">
-            <div class="edu-meta-chip">
-              <i class="fas fa-calendar-alt"></i>
-              <!-- ⬇ UPDATE: Your actual years -->
-              <span><strong>2018 – 2022</strong></span>
+        <!-- ═══ RIGHT: Certifications + Learning ═══ -->
+        <div>
+          <div class="edu-col-label reveal">
+            <div class="edu-col-icon" style="background: linear-gradient(135deg, #0f766e, #14b8a6);">
+              <i class="fas fa-certificate"></i>
             </div>
-            <div class="edu-meta-chip">
-              <i class="fas fa-award"></i>
-              <!-- ⬇ UPDATE: Your actual CGPA/percentage -->
-              <span>CGPA <strong>7.8 / 10</strong></span>
-            </div>
-            <div class="edu-meta-chip">
-              <i class="fas fa-book"></i>
-              <span>4-Year Full Time</span>
+            <div>
+              <div class="edu-col-title">Certifications &amp; Learning</div>
+              <div class="edu-col-sub">Professional development</div>
             </div>
           </div>
 
-          <div class="edu-subjects-label">Key Subjects</div>
-          <div class="edu-subjects">
-            <span class="edu-subject-tag">Data Structures</span>
-            <span class="edu-subject-tag">DBMS</span>
-            <span class="edu-subject-tag">OOP with Java</span>
-            <span class="edu-subject-tag">Operating Systems</span>
-            <span class="edu-subject-tag">Computer Networks</span>
-            <span class="edu-subject-tag">Software Engineering</span>
-            <span class="edu-subject-tag">Web Technologies</span>
-            <span class="edu-subject-tag">Design Patterns</span>
-          </div>
-
-          <div class="edu-stat-strip">
-            <div class="edu-stat-item">
-              <span class="edu-stat-val">4</span>
-              <span class="edu-stat-lbl">Years</span>
-            </div>
-            <div class="edu-stat-item">
-              <!-- ⬇ UPDATE: Your semester count -->
-              <span class="edu-stat-val">8</span>
-              <span class="edu-stat-lbl">Semesters</span>
-            </div>
-            <div class="edu-stat-item">
-              <!-- ⬇ UPDATE: Your CGPA or % -->
-              <span class="edu-stat-val">7.8</span>
-              <span class="edu-stat-lbl">CGPA</span>
-            </div>
-            <div class="edu-stat-item">
-              <span class="edu-stat-val">2022</span>
-              <span class="edu-stat-lbl">Graduated</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 12th -->
-        <div class="school-card reveal delay-2">
-          <div class="school-icon">📚</div>
-          <div>
-            <div class="school-name">
-              <!-- ⬇ UPDATE: Your 12th school name -->
-              Your Inter College / Jr. College
-            </div>
-            <div class="school-board">MPC — Math, Physics, Chemistry &nbsp;·&nbsp; State Board / CBSE</div>
-            <!-- ⬇ UPDATE: Your year -->
-            <div class="school-year">Class XII &nbsp;·&nbsp; 2017 – 2018</div>
-          </div>
-          <div class="school-percent">
-            <!-- ⬇ UPDATE: Your actual percentage -->
-            <strong>82%</strong>
-            <span>Score</span>
-          </div>
-        </div>
-
-        <!-- 10th -->
-        <div class="school-card reveal delay-3">
-          <div class="school-icon">🏫</div>
-          <div>
-            <div class="school-name">
-              <!-- ⬇ UPDATE: Your 10th school name -->
-              Your High School Name
-            </div>
-            <div class="school-board">SSC &nbsp;·&nbsp; Telangana State Board</div>
-            <!-- ⬇ UPDATE: Your year -->
-            <div class="school-year">Class X &nbsp;·&nbsp; 2015 – 2016</div>
-          </div>
-          <div class="school-percent">
-            <!-- ⬇ UPDATE: Your actual percentage -->
-            <strong>88%</strong>
-            <span>Score</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- ═══ RIGHT: Certifications + Learning ═══ -->
-      <div>
-        <div class="edu-col-label reveal">
-          <div class="edu-col-icon" style="background: linear-gradient(135deg, #0f766e, #14b8a6);">
-            <i class="fas fa-certificate"></i>
-          </div>
-          <div>
-            <div class="edu-col-title">Certifications &amp; Learning</div>
-            <div class="edu-col-sub">Professional development</div>
-          </div>
-        </div>
-
-        <!-- ── Active certifications (uncomment & fill when you have them) ── -->
-        <!--
+          <!-- ── Active certifications (uncomment & fill when you have them) ── -->
+          <!--
         <div class="edu-card reveal delay-1" style="border-color: rgba(14,165,233,0.25);">
           <div class="edu-card-top">
             <div class="edu-inst-logo">☁️</div>
@@ -1227,155 +396,91 @@ var officePhotos = [
         </div>
         -->
 
-        <!-- Certifications coming soon card -->
-        <div class="cert-coming-soon reveal delay-1">
-          <div class="cert-cs-icon">🏅</div>
-          <div class="cert-cs-title">Certifications Coming Soon</div>
-          <div class="cert-cs-desc">
-            Currently preparing for professional certifications to strengthen
-            expertise in cloud and enterprise development. Expected to complete
-            by end of 2025.
+          <!-- Certifications coming soon card -->
+          <div class="cert-coming-soon reveal delay-1">
+            <div class="cert-cs-icon">🏅</div>
+            <div class="cert-cs-title">Certifications Coming Soon</div>
+            <div class="cert-cs-desc">
+              Currently preparing for professional certifications to strengthen
+              expertise in cloud and enterprise development. Expected to complete
+              by end of 2025.
+            </div>
+            <div class="cert-cs-chips">
+              <span class="cert-cs-chip">☁️ AZ-900 Azure</span>
+              <span class="cert-cs-chip">🔷 .NET Developer</span>
+              <span class="cert-cs-chip">⚡ Angular</span>
+              <span class="cert-cs-chip">🔐 Security+</span>
+            </div>
           </div>
-          <div class="cert-cs-chips">
-            <span class="cert-cs-chip">☁️ AZ-900 Azure</span>
-            <span class="cert-cs-chip">🔷 .NET Developer</span>
-            <span class="cert-cs-chip">⚡ Angular</span>
-            <span class="cert-cs-chip">🔐 Security+</span>
+
+          <!-- ── Self-Learning Timeline ── -->
+          <div style="margin-top: 28px;">
+            <div class="edu-col-label reveal delay-2" style="margin-bottom: 20px;">
+              <div class="edu-col-icon"
+                style="background: linear-gradient(135deg, #7c3aed, #a855f7); width:36px; height:36px; font-size:0.85rem;">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div>
+                <div class="edu-col-title" style="font-size:0.9rem;">Continuous Learning</div>
+                <div class="edu-col-sub">Always levelling up</div>
+              </div>
+            </div>
+
+            <div class="learning-timeline">
+
+              <div class="ltl-item reveal delay-2">
+                <div class="ltl-dot"><i class="fab fa-angular"></i></div>
+                <div class="ltl-content">
+                  <div class="ltl-title">Angular 19 Standalone Architecture</div>
+                  <div class="ltl-desc">Deep-dived into signals, standalone components, micro-frontends and advanced
+                    RxJS patterns for the enterprise migration project.</div>
+                  <div class="ltl-year">2024</div>
+                </div>
+              </div>
+
+              <div class="ltl-item reveal delay-3">
+                <div class="ltl-dot" style="background: linear-gradient(135deg, #0f766e, #14b8a6);"><i
+                    class="fas fa-robot"></i></div>
+                <div class="ltl-content">
+                  <div class="ltl-title">AI &amp; ML Basics — Rasa NLP Framework</div>
+                  <div class="ltl-desc">Studied NLP concepts and conversational AI design to build and deploy the
+                    Rasa-based job-matching chatbot from scratch.</div>
+                  <div class="ltl-year">2023</div>
+                </div>
+              </div>
+
+              <div class="ltl-item reveal delay-4">
+                <div class="ltl-dot" style="background: linear-gradient(135deg, #dc2626, #f87171);"><i
+                    class="fab fa-react"></i></div>
+                <div class="ltl-content">
+                  <div class="ltl-title">React &amp; Component Architecture</div>
+                  <div class="ltl-desc">Self-taught React including hooks, context API, and component-driven design to
+                    contribute to the Custom Homepage Builder project.</div>
+                  <div class="ltl-year">2023</div>
+                </div>
+              </div>
+
+              <div class="ltl-item reveal delay-5">
+                <div class="ltl-dot" style="background: linear-gradient(135deg, #1a56db, #4d96ff);"><i
+                    class="fas fa-shield-halved"></i></div>
+                <div class="ltl-content">
+                  <div class="ltl-title">Web Security — JWT, CSRF &amp; BCrypt</div>
+                  <div class="ltl-desc">Studied OWASP top-10, secure token auth flows, anti-forgery patterns, and
+                    implemented them across production APIs.</div>
+                  <div class="ltl-year">2022</div>
+                </div>
+              </div>
+
+            </div>
           </div>
+
         </div>
-
-        <!-- ── Self-Learning Timeline ── -->
-        <div style="margin-top: 28px;">
-          <div class="edu-col-label reveal delay-2" style="margin-bottom: 20px;">
-            <div class="edu-col-icon" style="background: linear-gradient(135deg, #7c3aed, #a855f7); width:36px; height:36px; font-size:0.85rem;">
-              <i class="fas fa-brain"></i>
-            </div>
-            <div>
-              <div class="edu-col-title" style="font-size:0.9rem;">Continuous Learning</div>
-              <div class="edu-col-sub">Always levelling up</div>
-            </div>
-          </div>
-
-          <div class="learning-timeline">
-
-            <div class="ltl-item reveal delay-2">
-              <div class="ltl-dot"><i class="fab fa-angular"></i></div>
-              <div class="ltl-content">
-                <div class="ltl-title">Angular 19 Standalone Architecture</div>
-                <div class="ltl-desc">Deep-dived into signals, standalone components, micro-frontends and advanced RxJS patterns for the enterprise migration project.</div>
-                <div class="ltl-year">2024</div>
-              </div>
-            </div>
-
-            <div class="ltl-item reveal delay-3">
-              <div class="ltl-dot" style="background: linear-gradient(135deg, #0f766e, #14b8a6);"><i class="fas fa-robot"></i></div>
-              <div class="ltl-content">
-                <div class="ltl-title">AI &amp; ML Basics — Rasa NLP Framework</div>
-                <div class="ltl-desc">Studied NLP concepts and conversational AI design to build and deploy the Rasa-based job-matching chatbot from scratch.</div>
-                <div class="ltl-year">2023</div>
-              </div>
-            </div>
-
-            <div class="ltl-item reveal delay-4">
-              <div class="ltl-dot" style="background: linear-gradient(135deg, #dc2626, #f87171);"><i class="fab fa-react"></i></div>
-              <div class="ltl-content">
-                <div class="ltl-title">React &amp; Component Architecture</div>
-                <div class="ltl-desc">Self-taught React including hooks, context API, and component-driven design to contribute to the Custom Homepage Builder project.</div>
-                <div class="ltl-year">2023</div>
-              </div>
-            </div>
-
-            <div class="ltl-item reveal delay-5">
-              <div class="ltl-dot" style="background: linear-gradient(135deg, #1a56db, #4d96ff);"><i class="fas fa-shield-halved"></i></div>
-              <div class="ltl-content">
-                <div class="ltl-title">Web Security — JWT, CSRF &amp; BCrypt</div>
-                <div class="ltl-desc">Studied OWASP top-10, secure token auth flows, anti-forgery patterns, and implemented them across production APIs.</div>
-                <div class="ltl-year">2022</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
       </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
 
-<!-- ══════════ LEARNING TIMELINE STYLES ══════════ -->
-<style>
-.learning-timeline {
-  position: relative;
-  padding-left: 28px;
-}
-.learning-timeline::before {
-  content: '';
-  position: absolute;
-  left: 12px; top: 8px; bottom: 8px; width: 2px;
-  background: linear-gradient(180deg, #1a56db 0%, #4d96ff 60%, transparent 100%);
-  border-radius: 2px;
-}
-
-.ltl-item {
-  position: relative;
-  display: flex;
-  gap: 16px;
-  padding-bottom: 24px;
-}
-.ltl-item:last-child { padding-bottom: 0; }
-
-.ltl-dot {
-  position: absolute;
-  left: -28px;
-  width: 26px; height: 26px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #1a56db, #4d96ff);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 0.62rem;
-  border: 3px solid #fff;
-  box-shadow: 0 2px 10px rgba(26,86,219,0.25);
-  flex-shrink: 0;
-  top: 2px;
-}
-
-.ltl-content {
-  background: #f8f9fc;
-  border: 1px solid #e4e7f0;
-  border-radius: 12px;
-  padding: 14px 16px;
-  flex: 1;
-  transition: box-shadow 0.2s, border-color 0.2s;
-}
-.ltl-content:hover {
-  box-shadow: 0 4px 16px rgba(26,86,219,0.08);
-  border-color: rgba(26,86,219,0.2);
-}
-
-.ltl-title {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #1a1f2e;
-  margin-bottom: 5px;
-  line-height: 1.35;
-}
-.ltl-desc {
-  font-size: 0.78rem;
-  color: #6b7394;
-  line-height: 1.65;
-}
-.ltl-year {
-  display: inline-block;
-  margin-top: 8px;
-  background: #eff6ff;
-  color: #1a56db;
-  border: 1px solid #bfdbfe;
-  border-radius: 20px;
-  padding: 2px 10px;
-  font-size: 0.7rem;
-  font-weight: 700;
-}
-</style>
   <!-- ═══════════════════════ ACHIEVEMENTS ═══════════════════════ -->
   <section id="achievements">
     <div class="container">
@@ -1415,7 +520,7 @@ var officePhotos = [
           <div class="ach-title">AngularJS → Angular 19 Migration</div>
           <div class="ach-desc">
             Led a full-scale frontend migration from <strong>AngularJS 1.8 to
-            Angular 19</strong> (Standalone Architecture), introducing RxJS state
+              Angular 19</strong> (Standalone Architecture), introducing RxJS state
             management, Micro-Frontend architecture, PrimeNG, i18n support, and
             seamless legacy interop via event listeners.
           </div>
@@ -1427,7 +532,7 @@ var officePhotos = [
           <div class="ach-title">Privacy &amp; Compliance Features</div>
           <div class="ach-desc">
             Designed and implemented a fully compliant <strong>cookie consent
-            banner</strong> for the SimilarJobs module using JavaScript and .NET,
+              banner</strong> for the SimilarJobs module using JavaScript and .NET,
             with local storage persistence, accessible UI — boosting client trust
             and regulatory compliance.
           </div>
@@ -1442,7 +547,7 @@ var officePhotos = [
             to <strong>minified bundles (.min.js)</strong>, implementing
             <strong>CSRF / anti-forgery tokens</strong>, enforcing HTTPS-only API
             calls, and applying secure token-based auth using <strong>JWT &amp;
-            BCrypt</strong>.
+              BCrypt</strong>.
           </div>
         </div>
 
@@ -1475,10 +580,26 @@ var officePhotos = [
           <div class="skill-group-icon"><i class="fas fa-server"></i></div>
           <h3>Backend</h3>
           <ul class="skill-list">
-            <li><span class="skill-name">C# / .NET Core</span><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></li>
-            <li><span class="skill-name">ASP.NET Core / Web API</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></li>
-            <li><span class="skill-name">Entity Framework Core</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></li>
-            <li><span class="skill-name">Microservices</span><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></li>
+            <li><span class="skill-name">C# / .NET Core</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="90"></div>
+              </div>
+            </li>
+            <li><span class="skill-name">ASP.NET Core / Web API</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="88"></div>
+              </div>
+            </li>
+            <li><span class="skill-name">Entity Framework Core</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="82"></div>
+              </div>
+            </li>
+            <li><span class="skill-name">Microservices</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="75"></div>
+              </div>
+            </li>
           </ul>
         </div>
 
@@ -1486,10 +607,26 @@ var officePhotos = [
           <div class="skill-group-icon"><i class="fas fa-laptop-code"></i></div>
           <h3>Frontend</h3>
           <ul class="skill-list">
-            <li><span class="skill-name">Angular 19 / AngularJS</span><div class="skill-bar"><div class="skill-fill" data-w="87"></div></div></li>
-            <li><span class="skill-name">React</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></li>
-            <li><span class="skill-name">TypeScript / JavaScript</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></li>
-            <li><span class="skill-name">HTML5 / CSS3 / Bootstrap</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></li>
+            <li><span class="skill-name">Angular 19 / AngularJS</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="87"></div>
+              </div>
+            </li>
+            <li><span class="skill-name">React</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="80"></div>
+              </div>
+            </li>
+            <li><span class="skill-name">TypeScript / JavaScript</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="85"></div>
+              </div>
+            </li>
+            <li><span class="skill-name">HTML5 / CSS3 / Bootstrap</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="88"></div>
+              </div>
+            </li>
           </ul>
         </div>
 
@@ -1497,9 +634,21 @@ var officePhotos = [
           <div class="skill-group-icon"><i class="fas fa-database"></i></div>
           <h3>Database</h3>
           <ul class="skill-list">
-            <li><span class="skill-name">SQL Server 2019</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></li>
-            <li><span class="skill-name">MongoDB</span><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></li>
-            <li><span class="skill-name">Entity Framework</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></li>
+            <li><span class="skill-name">SQL Server 2019</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="85"></div>
+              </div>
+            </li>
+            <li><span class="skill-name">MongoDB</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="70"></div>
+              </div>
+            </li>
+            <li><span class="skill-name">Entity Framework</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="82"></div>
+              </div>
+            </li>
           </ul>
         </div>
 
@@ -1507,10 +656,26 @@ var officePhotos = [
           <div class="skill-group-icon"><i class="fas fa-tools"></i></div>
           <h3>Tools &amp; DevOps</h3>
           <ul class="skill-list">
-            <li><span class="skill-name">Azure DevOps / CI-CD</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></li>
-            <li><span class="skill-name">Git</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></li>
-            <li><span class="skill-name">Jira / MS Dynamics 365</span><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div></li>
-            <li><span class="skill-name">Docker / NUnit</span><div class="skill-bar"><div class="skill-fill" data-w="68"></div></div></li>
+            <li><span class="skill-name">Azure DevOps / CI-CD</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="80"></div>
+              </div>
+            </li>
+            <li><span class="skill-name">Git</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="85"></div>
+              </div>
+            </li>
+            <li><span class="skill-name">Jira / MS Dynamics 365</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="78"></div>
+              </div>
+            </li>
+            <li><span class="skill-name">Docker / NUnit</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-w="68"></div>
+              </div>
+            </li>
           </ul>
         </div>
 
@@ -1536,7 +701,8 @@ var officePhotos = [
             </div>
           </div>
           <h3>AngularJS → Angular 19 Migration</h3>
-          <p>Led a full-scale enterprise migration from AngularJS 1.8 to Angular 19 using Standalone Architecture, modernizing the entire frontend of the BrassRing Recruitment Suite.</p>
+          <p>Led a full-scale enterprise migration from AngularJS 1.8 to Angular 19 using Standalone Architecture,
+            modernizing the entire frontend of the BrassRing Recruitment Suite.</p>
           <ul>
             <li>Converted complete legacy codebase to modern Angular (Standalone)</li>
             <li>Implemented <strong>RxJS-based state management</strong></li>
@@ -1561,7 +727,9 @@ var officePhotos = [
             </div>
           </div>
           <h3>Rasa AI Chatbot Suite</h3>
-          <p>Designed and deployed an AI-powered chatbot using the Rasa framework with custom Python actions. Handles dynamic job-search queries, resume upload &amp; matching, and returns results as interactive card layouts.</p>
+          <p>Designed and deployed an AI-powered chatbot using the Rasa framework with custom Python actions. Handles
+            dynamic job-search queries, resume upload &amp; matching, and returns results as interactive card layouts.
+          </p>
           <div class="project-techs">
             <span>Python</span><span>Rasa</span><span>REST API</span><span>YAML</span>
           </div>
@@ -1576,7 +744,8 @@ var officePhotos = [
             </div>
           </div>
           <h3>Similar Job Recommendations</h3>
-          <p>Developed a job recommendation engine integrating the Archill API. Job details are indexed, sent to the API, and matching jobs are rendered as horizontally scrollable cards in an AngularJS frontend.</p>
+          <p>Developed a job recommendation engine integrating the Archill API. Job details are indexed, sent to the
+            API, and matching jobs are rendered as horizontally scrollable cards in an AngularJS frontend.</p>
           <div class="project-techs">
             <span>ASP.NET</span><span>AngularJS</span><span>SQL Server</span><span>REST API</span>
           </div>
@@ -1591,7 +760,8 @@ var officePhotos = [
             </div>
           </div>
           <h3>Authentication &amp; Authorization System</h3>
-          <p>Secure user auth with registration, login, and role-based access control using JWT tokens. Implemented BCrypt password hashing, CSRF tokens, HTTPS enforcement, and session expiration.</p>
+          <p>Secure user auth with registration, login, and role-based access control using JWT tokens. Implemented
+            BCrypt password hashing, CSRF tokens, HTTPS enforcement, and session expiration.</p>
           <div class="project-techs">
             <span>ASP.NET Core</span><span>EF Core</span><span>SQL Server</span><span>JWT</span><span>BCrypt</span>
           </div>
@@ -1606,7 +776,8 @@ var officePhotos = [
             </div>
           </div>
           <h3>Custom Homepage Design Tool</h3>
-          <p>A drag-and-drop homepage builder allowing users to create personalized landing pages with real-time theme customization — colors, fonts, and layout — powered by React and ASP.NET MVC.</p>
+          <p>A drag-and-drop homepage builder allowing users to create personalized landing pages with real-time theme
+            customization — colors, fonts, and layout — powered by React and ASP.NET MVC.</p>
           <div class="project-techs">
             <span>ReactJS</span><span>ASP.NET MVC</span><span>JavaScript</span><span>MySQL</span>
           </div>
@@ -1621,7 +792,8 @@ var officePhotos = [
             </div>
           </div>
           <h3>Resume-Based Job Matching</h3>
-          <p>Chatbot-integrated resume upload feature that encodes resumes in base64 and forwards them to Archill's API. Returns personalized job matches dynamically rendered in the frontend UI.</p>
+          <p>Chatbot-integrated resume upload feature that encodes resumes in base64 and forwards them to Archill's API.
+            Returns personalized job matches dynamically rendered in the frontend UI.</p>
           <div class="project-techs">
             <span>ASP.NET</span><span>AngularJS</span><span>Base64</span><span>REST API</span>
           </div>
@@ -1636,7 +808,8 @@ var officePhotos = [
             </div>
           </div>
           <h3>Cookie Consent &amp; Privacy Banner</h3>
-          <p>Implemented a GDPR-compliant cookie consent banner for the SimilarJobs module. Used local storage to persist user preferences with a non-intrusive, accessible UI following modern UX patterns.</p>
+          <p>Implemented a GDPR-compliant cookie consent banner for the SimilarJobs module. Used local storage to
+            persist user preferences with a non-intrusive, accessible UI following modern UX patterns.</p>
           <div class="project-techs">
             <span>JavaScript</span><span>AngularJS</span><span>.NET</span><span>CSS</span>
           </div>
@@ -1648,182 +821,110 @@ var officePhotos = [
 
   <!-- ═══════════════════════ CONTACT ═══════════════════════ -->
   <section id="contact" class="section section-alt">
-  <div class="container">
-    <div class="section-header">
-      <p class="section-label">Let's talk</p>
-      <h2 class="section-title">Get In Touch</h2>
-    </div>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Let's talk</p>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
 
-    <div class="contact-grid">
+      <div class="contact-grid">
 
-      <!-- LEFT: Info -->
-      <div class="contact-info">
-        <p class="contact-intro">
-          I'm always open to discussing new opportunities, interesting projects,
-          or just having a chat about technology. Reach out via email, LinkedIn,
-          or ping me directly on WhatsApp!
-        </p>
+        <!-- LEFT: Info -->
+        <div class="contact-info">
+          <p class="contact-intro">
+            I'm always open to discussing new opportunities, interesting projects,
+            or just having a chat about technology. Reach out via email, LinkedIn,
+            or ping me directly on WhatsApp!
+          </p>
 
-        <div class="contact-items">
-          <a href="mailto:jgmanvesh@gmail.com" class="contact-item">
-            <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
-            <div>
-              <strong>Email</strong>
-              <span>jgmanvesh@gmail.com</span>
-            </div>
-          </a>
+          <div class="contact-items">
+            <a href="mailto:jgmanvesh@gmail.com" class="contact-item">
+              <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <strong>Email</strong>
+                <span>jgmanvesh@gmail.com</span>
+              </div>
+            </a>
 
-          <a href="https://www.linkedin.com/in/anvesh-j-4525571b5/" target="_blank" class="contact-item">
-            <div class="contact-item-icon"><i class="fab fa-linkedin"></i></div>
-            <div>
-              <strong>LinkedIn</strong>
-              <span>anvesh-j-4525571b5</span>
-            </div>
-          </a>
+            <a href="https://www.linkedin.com/in/anvesh-j-4525571b5/" target="_blank" class="contact-item">
+              <div class="contact-item-icon"><i class="fab fa-linkedin"></i></div>
+              <div>
+                <strong>LinkedIn</strong>
+                <span>anvesh-j-4525571b5</span>
+              </div>
+            </a>
 
-          <a href="https://github.com/Nani94944" target="_blank" class="contact-item">
-            <div class="contact-item-icon"><i class="fab fa-github"></i></div>
-            <div>
-              <strong>GitHub</strong>
-              <span>Nani94944</span>
-            </div>
-          </a>
+            <a href="https://github.com/Nani94944" target="_blank" class="contact-item">
+              <div class="contact-item-icon"><i class="fab fa-github"></i></div>
+              <div>
+                <strong>GitHub</strong>
+                <span>Nani94944</span>
+              </div>
+            </a>
 
-          <!-- WhatsApp direct link -->
-          <a href="https://wa.me/919121232760" target="_blank" class="contact-item wa">
-            <div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div>
-            <div>
-              <strong>WhatsApp</strong>
-              <span>+91 9121232760 — tap to chat</span>
-            </div>
-          </a>
+            <!-- WhatsApp direct link -->
+            <a href="https://wa.me/919121232760" target="_blank" class="contact-item wa">
+              <div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div>
+              <div>
+                <strong>WhatsApp</strong>
+                <span>+91 9121232760 — tap to chat</span>
+              </div>
+            </a>
 
-          <div class="contact-item">
-            <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div>
-              <strong>Location</strong>
-              <span>Hyderabad, India</span>
+            <div class="contact-item">
+              <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <strong>Location</strong>
+                <span>Hyderabad, India</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- RIGHT: Form -->
-      <div class="contact-form-wrap">
-        <form id="contactForm">
+        <!-- RIGHT: Form -->
+        <div class="contact-form-wrap">
+          <form id="contactForm">
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fname">Full Name</label>
-              <input type="text" id="fname" name="from_name" placeholder="Your name" required />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">Full Name</label>
+                <input type="text" id="fname" name="from_name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="femail">Email Address</label>
+                <input type="email" id="femail" name="reply_to" placeholder="your@email.com" required />
+              </div>
             </div>
+
             <div class="form-group">
-              <label for="femail">Email Address</label>
-              <input type="email" id="femail" name="reply_to" placeholder="your@email.com" required />
+              <label for="fsubject">Subject</label>
+              <input type="text" id="fsubject" name="subject" placeholder="What's this about?" />
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="fsubject">Subject</label>
-            <input type="text" id="fsubject" name="subject" placeholder="What's this about?" />
-          </div>
+            <div class="form-group">
+              <label for="fmessage">Message</label>
+              <textarea id="fmessage" name="message" rows="5" placeholder="Tell me more..." required></textarea>
+            </div>
 
-          <div class="form-group">
-            <label for="fmessage">Message</label>
-            <textarea id="fmessage" name="message" rows="5" placeholder="Tell me more..." required></textarea>
-          </div>
+            <!-- Dual send buttons -->
+            <div class="send-row">
+              <button type="submit" class="btn btn-primary" id="sendEmailBtn">
+                <i class="fas fa-paper-plane"></i> Send Email
+              </button>
+              <button type="button" class="btn btn-whatsapp" id="sendWhatsAppBtn">
+                <i class="fab fa-whatsapp"></i> Send on WhatsApp
+              </button>
+            </div>
 
-          <!-- Dual send buttons -->
-          <div class="send-row">
-            <button type="submit" class="btn btn-primary" id="sendEmailBtn">
-              <i class="fas fa-paper-plane"></i> Send Email
-            </button>
-            <button type="button" class="btn btn-whatsapp" id="sendWhatsAppBtn">
-              <i class="fab fa-whatsapp"></i> Send on WhatsApp
-            </button>
-          </div>
+            <p class="form-note" id="formNote"></p>
+          </form>
+        </div>
 
-          <p class="form-note" id="formNote"></p>
-        </form>
-      </div>
+      </div><!-- /.contact-grid -->
+    </div>
+  </section>
 
-    </div><!-- /.contact-grid -->
-  </div>
-</section>
 
-<script>
-  /* ═══════════ EMAILJS SETUP ═══════════
-     1. Go to https://www.emailjs.com → sign up (free)
-     2. Add Email Service → connect your Gmail → copy Service ID
-     3. Create Email Template (use these variables in the template body):
-           From: {{from_name}} ({{reply_to}})
-           Subject: {{subject}}
-           Message: {{message}}
-     4. Copy Public Key from Account → API Keys
-     5. Replace the 3 placeholders below with your real IDs
-  ══════════════════════════════════════ */
-  const EMAILJS_PUBLIC_KEY  = 'mEv6pZF9C1hUc27L6';    // e.g. 'abc123XYZ'
-  const EMAILJS_SERVICE_ID  = 'service_jug13zd';    // e.g. 'service_xxxxxx'
-  const EMAILJS_TEMPLATE_ID = 'template_jpooewj';   // e.g. 'template_xxxxxx'
-
-  emailjs.init(EMAILJS_PUBLIC_KEY);
-
-  const form       = document.getElementById('contactForm');
-  const note       = document.getElementById('formNote');
-  const sendBtn    = document.getElementById('sendEmailBtn');
-  const waBtn      = document.getElementById('sendWhatsAppBtn');
-
-  /* ── Email Submit ── */
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    note.textContent = '';
-    note.className   = 'form-note';
-
-    sendBtn.disabled = true;
-    sendBtn.innerHTML = '<span class="spinner"></span> Sending…';
-
-    try {
-      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
-      note.textContent = '✅ Message sent! I\'ll reply within 24 hours.';
-      note.className   = 'form-note success';
-      form.reset();
-    } catch (err) {
-      console.error('EmailJS error:', err);
-      note.textContent = '❌ Oops! Something went wrong. Try WhatsApp instead.';
-      note.className   = 'form-note error';
-    } finally {
-      sendBtn.disabled = false;
-      sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Email';
-    }
-  });
-
-  /* ── WhatsApp Button ── */
-  waBtn.addEventListener('click', () => {
-    const name    = document.getElementById('fname').value.trim();
-    const email   = document.getElementById('femail').value.trim();
-    const subject = document.getElementById('fsubject').value.trim();
-    const message = document.getElementById('fmessage').value.trim();
-
-    if (!name || !message) {
-      note.textContent = '⚠️ Please fill in at least your name and message before sending on WhatsApp.';
-      note.className   = 'form-note error';
-      return;
-    }
-
-    /* Build WhatsApp pre-filled message */
-    const waText = encodeURIComponent(
-      `Hi Anvesh! 👋\n\n` +
-      `*Name:* ${name}\n` +
-      (email   ? `*Email:* ${email}\n`   : '') +
-      (subject ? `*Subject:* ${subject}\n` : '') +
-      `\n*Message:*\n${message}`
-    );
-
-    /* Replace with your full international number (no + or spaces) */
-    const PHONE = '919121232760';
-    window.open(`https://wa.me/${PHONE}?text=${waText}`, '_blank');
-  });
-</script>
 
 
   <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
@@ -1838,6 +939,205 @@ var officePhotos = [
     </div>
   </footer>
 
+  <!-- ========================================== -->
+  <!-- 3D ANIMATIONS & FUTURISTIC ENHANCEMENTS -->
+  <!-- ========================================== -->
+  
+  <!-- Vanilla Tilt for 3D Interactions -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  
+  <!-- tsParticles Full Engine for Custom Shapes per Section -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // 1. Initialize 3D Tilt on Cards
+      var tiltElements = document.querySelectorAll('.stat-card, .edu-card, .school-card, .ach-card, .project-card, .skill-group, .about-avatar');
+      if (typeof VanillaTilt !== "undefined") {
+        VanillaTilt.init(tiltElements, {
+          max: 12,
+          speed: 400,
+          glare: true,
+          "max-glare": 0.25,
+          scale: 1.03
+        });
+      }
+      
+      // Floating animation for Avatar
+      var avatar = document.querySelector('.avatar-box img');
+      if (avatar) avatar.style.animation = 'float 6s ease-in-out infinite';
+      var avatarPlaceholder = document.querySelector('.avatar-placeholder');
+      if (avatarPlaceholder) avatarPlaceholder.style.animation = 'float 6s ease-in-out infinite';
+
+      // 2. Inject Unique Particle Containers For Every Section
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => {
+        // Ensure relative layer for canvas
+        sec.style.position = 'relative'; 
+        // Add particle wrapper
+        const particleDiv = document.createElement('div');
+        particleDiv.id = 'particles-' + sec.id;
+        particleDiv.className = 'section-particles';
+        // Add behind section content
+        sec.insertBefore(particleDiv, sec.firstChild);
+      });
+
+      // 3. Configure Unique Section Animations
+      setTimeout(function() {
+        if (typeof tsParticles === 'undefined') return;
+
+        function getParticleConfig(type) {
+          // Base setup shared by all
+          let config = {
+            fullScreen: { enable: false }, // Crucial: contain it inside the section Div!
+            background: { color: { value: "transparent" } },
+            fpsLimit: 60,
+            interactivity: { 
+              events: { onHover: { enable: true, mode: "grab" } }, 
+              modes: { grab: { distance: 150, links: { opacity: 0.5 } } } 
+            },
+            particles: {
+              move: { enable: true, speed: 1.5 },
+              number: { value: 30, density: { enable: true, area: 800 } },
+              opacity: { value: 0.4 },
+              shape: { type: "circle" },
+              size: { value: { min: 1, max: 4 } }
+            }
+          };
+
+           if (type === 'home') {
+            // Futuristic Network
+            config.particles.color = { value: "#4d96ff" };
+            config.particles.links = { enable: true, color: "#4d96ff", opacity: 0.4, distance: 120 };
+            config.particles.number.value = 60;
+          } else if (type === 'about') {
+            // Bouncing futuristic polygons
+            config.particles.shape.type = ["polygon", "edge"];
+            config.particles.color = { value: ["#a855f7", "#ec4899"] };
+            config.particles.size.value = { min: 3, max: 7 };
+            config.particles.move.outModes = "bounce";
+          } else if (type === 'education') {
+            // Floating geometric blocks (Education building blocks)
+            config.particles.shape.type = ["triangle", "square"];
+            config.particles.color = { value: "#3b82f6" };
+            config.particles.size.value = { min: 4, max: 10 };
+            config.particles.move.speed = 0.8;
+            config.particles.opacity.value = 0.3;
+          } else if (type === 'achievements') {
+            // Star fields / Confetti logic
+            config.particles.shape.type = "star";
+            config.particles.color = { value: ["#fbbf24", "#f59e0b"] };
+            config.particles.size.value = { min: 2, max: 5 };
+            config.particles.move.direction = "top";
+            config.particles.move.speed = 1;
+            config.particles.number.value = 50;
+            config.interactivity.events.onHover.mode = "repulse";
+          } else if (type === 'skills') {
+            // Tech infrastructure code dots
+            config.particles.color = { value: "#10b981" };
+            config.particles.links = { enable: true, color: "#10b981", opacity: 0.2 };
+            config.particles.move.direction = "none";
+            config.particles.move.speed = 1;
+            config.particles.number.value = 70;
+          } else if (type === 'projects') {
+            // Fireflies reflecting creativity
+            config.particles.color = { value: "#f43f5e" };
+            config.particles.opacity.animation = { enable: true, minimumValue: 0.1, speed: 2 };
+            config.particles.size.animation = { enable: true, minimumValue: 1, speed: 3 };
+            config.particles.number.value = 60;
+            config.particles.move.direction = "right";
+          } else if (type === 'contact') {
+            // Communication bubbles
+            config.particles.shape.type = "circle";
+            config.particles.color = { value: "#0ea5e9" };
+            config.particles.size.value = { min: 5, max: 20 };
+            config.particles.opacity.value = 0.15;
+            config.particles.move.direction = "top";
+            config.particles.move.speed = 2;
+            config.particles.move.outModes = "out";
+            config.interactivity.events.onHover.mode = "bubble";
+          }
+          return config;
+        }
+
+        // Apply tailored configs based on IDs existing in index.html
+        tsParticles.load("particles-home", getParticleConfig('home'));
+        tsParticles.load("particles-about", getParticleConfig('about'));
+        tsParticles.load("particles-education", getParticleConfig('education'));
+        tsParticles.load("particles-achievements", getParticleConfig('achievements'));
+        tsParticles.load("particles-skills", getParticleConfig('skills'));
+        tsParticles.load("particles-projects", getParticleConfig('projects'));
+        tsParticles.load("particles-contact", getParticleConfig('contact'));
+
+      }, 800);
+    });
+  </script>
+
+  <style>
+    /* ------------------------------------------- */
+    /* ENHANCED VISIBLE BACKGROUNDS & 3D STYLING   */
+    /* ------------------------------------------- */
+    
+    /* Global Visible Futuristic Base */
+    body {
+      background-image: radial-gradient(circle at center, rgba(30, 30, 45, 0.05) 0%, rgba(245, 247, 250, 0.2) 100%);
+      background-attachment: fixed;
+    }
+
+    /* Target specific sections to give them distinct visual color gradients */
+    #home { background: linear-gradient(135deg, rgba(77, 150, 255, 0.06), transparent); }
+    #about { background: linear-gradient(135deg, transparent, rgba(168, 85, 247, 0.06)); }
+    #education { background: linear-gradient(135deg, rgba(59, 130, 246, 0.06), transparent); }
+    #achievements { background: linear-gradient(135deg, transparent, rgba(251, 191, 36, 0.06)); }
+    #skills { background: linear-gradient(135deg, rgba(16, 185, 129, 0.06), transparent); }
+    #projects { background: linear-gradient(135deg, transparent, rgba(244, 63, 94, 0.06)); }
+    #contact { background: linear-gradient(135deg, rgba(14, 165, 233, 0.06), transparent); }
+
+    /* The dynamically injected particle canvas container */
+    .section-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0; /* Keep particles strictly behind content */
+      pointer-events: none;
+    }
+
+    /* Elevate content over animated particles */
+    section > .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Floating aesthetics */
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(2deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+    
+    .hero-name {
+      text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+    }
+    
+    /* Emphasized 3D Glassmorphism on interactive cards */
+    .stat-card, .edu-card, .school-card, .ach-card, .project-card, .skill-group, .about-text {
+      transform-style: preserve-3d;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1) !important;
+      transition: box-shadow 0.3s ease, border 0.3s ease;
+      background: rgba(255, 255, 255, 0.85); /* Slightly transparent so particles peek through */
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255, 0.5);
+    }
+    
+    .stat-card:hover, .edu-card:hover, .school-card:hover, .ach-card:hover, .project-card:hover, .skill-group:hover {
+      box-shadow: 0 25px 45px -15px rgba(99, 102, 241, 0.4) !important;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+  </style>
+
   <script src="script.js"></script>
 </body>
+
 </html>
