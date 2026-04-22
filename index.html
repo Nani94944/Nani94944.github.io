@@ -152,78 +152,560 @@
   </section>
 
   <!-- ═══════════════════════ ABOUT ═══════════════════════ -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Get to know me</p>
-        <h2 class="section-title">About Me</h2>
+ <!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+<!-- PASTE THIS INTO YOUR index.html replacing the existing about section -->
+<!-- Also paste the <style> block into your style.css or <head> styles   -->
+<!-- Also paste the <script> block before </body>                         -->
+
+<!-- ══════════════ STYLES — add to your <style> or style.css ══════════ -->
+<style>
+/* ── ABOUT SECTION ENHANCED ── */
+#about { background: #fff; padding: 90px 0; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* Avatar */
+.avatar-box {
+  position: relative;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 32px rgba(26,86,219,0.18);
+  background: linear-gradient(135deg, #1a56db 0%, #4d96ff 100%);
+  flex-shrink: 0;
+}
+.avatar-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.avatar-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Lora', serif;
+  font-size: 3rem; font-weight: 600;
+  color: #fff; letter-spacing: 2px;
+}
+
+/* Stats */
+.about-stats {
+  display: flex; gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.stat-card {
+  background: #f8f9fc;
+  border: 1px solid #e4e7f0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  text-align: center;
+  flex: 1; min-width: 80px;
+}
+.stat-card strong {
+  display: block; font-size: 1.5rem;
+  font-weight: 700; color: #1a56db;
+}
+.stat-card span {
+  font-size: 0.72rem; color: #6b7394;
+  font-weight: 500; line-height: 1.4;
+  display: block; margin-top: 3px;
+}
+
+/* Company badge — clickable */
+.company-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, #e8f0fe, #dbeafe);
+  border: 1.5px solid #93c5fd;
+  border-radius: 30px;
+  padding: 7px 16px 7px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.22s;
+  margin-bottom: 18px;
+  position: relative;
+}
+.company-badge:hover {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  box-shadow: 0 4px 16px rgba(26,86,219,0.2);
+  transform: translateY(-1px);
+}
+.company-badge .cb-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22,163,74,0.25);
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { box-shadow: 0 0 0 3px rgba(22,163,74,0.25); }
+  50%      { box-shadow: 0 0 0 6px rgba(22,163,74,0.1); }
+}
+.company-badge .cb-text { font-size: 0.82rem; font-weight: 600; color: #1a56db; }
+.company-badge .cb-cam  { font-size: 0.75rem; color: #6b7394; margin-left: 2px; }
+.company-badge .cb-tag  {
+  background: #fff; border: 1px solid #93c5fd;
+  border-radius: 20px; padding: 2px 8px;
+  font-size: 0.7rem; font-weight: 600; color: #1a56db;
+}
+
+/* About text */
+.about-text h3 {
+  font-size: 1.4rem; font-weight: 700; color: #1a1f2e;
+  margin-bottom: 16px; line-height: 1.35;
+}
+.about-text p { color: #4a5568; line-height: 1.8; margin-bottom: 14px; font-size: 0.95rem; }
+.about-text p strong { color: #1a1f2e; }
+.about-text p em { color: #1a56db; font-style: normal; font-weight: 600; }
+
+/* Journey timeline strip */
+.journey-strip {
+  background: linear-gradient(135deg, #f8f9fc 0%, #eff6ff 100%);
+  border: 1px solid #e4e7f0;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  position: relative; overflow: hidden;
+}
+.journey-strip::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  background: linear-gradient(180deg, #1a56db, #4d96ff);
+  border-radius: 4px 0 0 4px;
+}
+.journey-title {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px;
+  color: #1a56db; font-weight: 700; margin-bottom: 14px;
+}
+.journey-milestones {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.j-chip {
+  display: flex; align-items: center; gap: 6px;
+  background: #fff; border: 1px solid #e4e7f0;
+  border-radius: 20px; padding: 5px 12px;
+  font-size: 0.78rem; color: #1a1f2e; font-weight: 500;
+}
+.j-chip .j-year { color: #1a56db; font-weight: 700; font-size: 0.72rem; }
+.j-chip .j-dot  { width: 5px; height: 5px; border-radius: 50%; background: #1a56db; }
+
+/* Tags */
+.about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.tag {
+  background: #eff6ff; color: #1a56db;
+  border: 1px solid #bfdbfe;
+  border-radius: 20px; padding: 5px 14px;
+  font-size: 0.78rem; font-weight: 600;
+}
+
+/* ════════════════════════════════════════
+   OFFICE PHOTO CAROUSEL MODAL
+════════════════════════════════════════ */
+.carousel-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(10,15,30,0.92);
+  backdrop-filter: blur(8px);
+  align-items: center; justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+.carousel-overlay.open { display: flex; }
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%; max-width: 860px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0d1117;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+}
+
+/* Header bar */
+.carousel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.carousel-header-left { display: flex; align-items: center; gap: 10px; }
+.carousel-company-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
+  box-shadow: 0 0 6px rgba(34,197,94,0.6);
+}
+.carousel-company-name { font-size: 0.88rem; font-weight: 700; color: #fff; }
+.carousel-company-sub  { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+.carousel-close {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(255,255,255,0.08); border: none;
+  color: #fff; font-size: 1.1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.carousel-close:hover { background: rgba(255,255,255,0.18); }
+
+/* Image stage */
+.carousel-stage {
+  position: relative;
+  width: 100%; aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+.carousel-slide {
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity 0.5s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.carousel-slide.active { opacity: 1; }
+.carousel-slide img {
+  width: 100%; height: 100%; object-fit: cover;
+  user-select: none; pointer-events: none;
+}
+
+/* Caption overlay */
+.slide-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, transparent 100%);
+  padding: 32px 20px 16px;
+  color: #fff; font-size: 0.82rem;
+}
+
+/* Placeholder slide (shown when no real image) */
+.slide-placeholder {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px; color: rgba(255,255,255,0.35);
+  font-size: 0.85rem; text-align: center; padding: 20px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+}
+.slide-placeholder .ph-icon { font-size: 2.5rem; opacity: 0.3; }
+.slide-placeholder .ph-label { font-weight: 600; color: rgba(255,255,255,0.5); }
+
+/* Prev / Next arrows */
+.carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 42px; height: 42px; border-radius: 50%;
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+  color: #fff; font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s; z-index: 10;
+}
+.carousel-btn:hover { background: rgba(255,255,255,0.25); }
+.carousel-btn.prev { left: 14px; }
+.carousel-btn.next { right: 14px; }
+
+/* Dots */
+.carousel-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.carousel-dots { display: flex; gap: 6px; align-items: center; }
+.c-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  transition: all 0.25s; cursor: pointer; border: none;
+}
+.c-dot.active { background: #4d96ff; width: 20px; border-radius: 4px; }
+.carousel-counter { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+
+/* Keyboard hint */
+.carousel-hint {
+  margin-top: 12px; font-size: 0.72rem;
+  color: rgba(255,255,255,0.3); text-align: center;
+}
+
+/* ── ADD PHOTOS NOTICE (shown when using placeholders) ── */
+.photo-notice {
+  background: #fffbeb; border: 1px solid #fcd34d;
+  border-radius: 10px; padding: 10px 16px;
+  font-size: 0.78rem; color: #92400e;
+  margin-top: 8px; display: flex; gap: 8px; align-items: flex-start;
+}
+</style>
+
+<!-- ══════════════ HTML — replace your about section ══════════════ -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Get to know me</p>
+      <h2 class="section-title">About Me</h2>
+    </div>
+    <div class="about-grid">
+
+      <!-- LEFT: Avatar + Stats -->
+      <div class="about-avatar reveal">
+        <div class="avatar-box">
+          <div class="avatar-placeholder">JA</div>
+          <!-- Uncomment when you have a photo:
+          <img src="Anvesh.jpg" alt="Jangam Anvesh" /> -->
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-card reveal delay-1">
+            <strong>3.6</strong>
+            <span>Years Experience</span>
+          </div>
+          <div class="stat-card reveal delay-2">
+            <strong>10+</strong>
+            <span>Projects Delivered</span>
+          </div>
+          <div class="stat-card reveal delay-3">
+            <strong>99.9%</strong>
+            <span>Uptime Achieved</span>
+          </div>
+        </div>
+
+        <!-- ADD PHOTO NOTICE (remove once you add real photos) -->
+        <div class="photo-notice reveal delay-4">
+          <span>📷</span>
+          <span>To add office photos: put <strong>office1.jpg … office15.jpg</strong> in your project folder, then update the <code>officePhotos</code> array in the script below.</span>
+        </div>
       </div>
-      <div class="about-grid">
-        <div class="about-avatar reveal">
 
-          <!--
-            ══ HOW TO ADD YOUR PHOTO ══
-            1. Copy your photo (e.g. anvesh.jpg) into the same folder as index.html
-            2. Delete the <div class="avatar-placeholder"> line below
-            3. Uncomment the <img> line below it
-          -->
-          <div class="avatar-box">
-            <div class="avatar-placeholder">JA</div>
-            <img src="Anvesh.jpg" alt="Jangam Anvesh" />
-          </div>
+      <!-- RIGHT: Bio -->
+      <div class="about-text reveal delay-2">
 
-          <div class="about-stats">
-            <div class="stat-card reveal delay-1">
-              <strong>3.6</strong>
-              <span>Years Experience</span>
-            </div>
-            <div class="stat-card reveal delay-2">
-              <strong>7+</strong>
-              <span>Projects Delivered</span>
-            </div>
-            <div class="stat-card reveal delay-3">
-              <strong>99.9%</strong>
-              <span>Uptime Achieved</span>
-            </div>
-          </div>
-        </div>
+        <!-- Clickable company badge — opens carousel -->
+        <button class="company-badge" id="openCarouselBtn" title="See our office photos">
+          <span class="cb-dot"></span>
+          <span class="cb-text">Infinite Computer Solutions</span>
+          <span class="cb-cam">📷</span>
+          <span class="cb-tag">View Office</span>
+        </button>
 
-        <div class="about-text reveal delay-2">
-          <h3>Full Stack .NET &amp; Angular Developer</h3>
-          <p>
-            I'm a passionate software engineer currently working at
-            <strong>Infinite Computer Solutions</strong>, where I contribute to the
-            <em>BrassRing Recruitment Suite</em> — an enterprise-grade recruitment
-            product used by global clients.
-          </p>
-          <p>
-            My core expertise lies in building robust backend systems with
-            <strong>C#, .NET Core, and ASP.NET</strong>, paired with responsive
-            frontends using <strong>Angular 19, AngularJS, and React</strong>. I'm
-            also experienced with <strong>SQL Server, Entity Framework,</strong> and
-            <strong>Azure DevOps</strong> for CI/CD and production support.
-          </p>
-          <p>
-            I enjoy solving real-world problems — from leading full-scale
-            <strong>AngularJS → Angular 19 migrations</strong> to crafting AI
-            chatbots with the Rasa framework and improving app security via
-            minification, CSRF tokens, and JWT. Based in Hyderabad and open
-            to relocating for the right opportunity.
-          </p>
-          <div class="about-tags">
-            <span class="tag">.NET Core</span>
-            <span class="tag">C#</span>
-            <span class="tag">Angular 19</span>
-            <span class="tag">React</span>
-            <span class="tag">SQL Server</span>
-            <span class="tag">Azure DevOps</span>
-            <span class="tag">Jira</span>
-            <span class="tag">Docker</span>
+        <h3>Full Stack .NET &amp; Angular Developer</h3>
+
+        <p>
+          My journey began in <strong>September 2022</strong> as a fresher who believed
+          great software is built one commit at a time. Since then, I've grown into a
+          confident full-stack engineer — shipping production features, leading migrations,
+          and solving hard problems for enterprise clients across the globe.
+        </p>
+
+        <p>
+          At <em>Infinite Computer Solutions</em>, I'm a core contributor to the
+          <strong>BrassRing Recruitment Suite</strong> — a mission-critical HR platform
+          trusted by Fortune 500 companies. I architect backend APIs with
+          <strong>C# &amp; .NET Core</strong>, build blazing-fast frontends in
+          <strong>Angular 19 &amp; React</strong>, and own the full DevOps pipeline
+          via <strong>Azure DevOps CI/CD</strong>.
+        </p>
+
+        <p>
+          Some career highlights: I <strong>led a complete AngularJS 1.8 → Angular 19
+          migration</strong> (standalone architecture, micro-frontends, RxJS, PrimeNG),
+          shipped a <strong>Rasa AI chatbot</strong> for intelligent job matching, built
+          a <strong>GDPR-compliant cookie consent</strong> system, reduced bug resolution
+          time by <strong>20%</strong>, and maintained <strong>99.9% uptime</strong>
+          across production environments. Every feature I ship is secured with JWT,
+          BCrypt, CSRF tokens, and HTTPS enforcement.
+        </p>
+
+        <!-- Journey milestones strip -->
+        <div class="journey-strip reveal delay-3">
+          <div class="journey-title">⚡ Career Journey — Sep 2022 → Present</div>
+          <div class="journey-milestones">
+            <div class="j-chip"><span class="j-dot"></span><span class="j-year">Sep '22</span> Joined as .NET Full Stack Dev</div>
+            <div class="j-chip"><span class="j-dot"></span><span class="j-year">2023</span> Led Angular 19 Migration</div>
+            <div class="j-chip"><span class="j-dot"></span><span class="j-year">2023</span> Built Rasa AI Chatbot</div>
+            <div class="j-chip"><span class="j-dot"></span><span class="j-year">2024</span> GDPR Compliance Module</div>
+            <div class="j-chip"><span class="j-dot"></span><span class="j-year">2024</span> Micro-Frontend Architecture</div>
+            <div class="j-chip"><span class="j-dot"></span><span class="j-year">2025</span> 99.9% Uptime &amp; Perf+</div>
           </div>
         </div>
+
+        <div class="about-tags">
+          <span class="tag">.NET Core</span>
+          <span class="tag">C#</span>
+          <span class="tag">Angular 19</span>
+          <span class="tag">React</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">Azure DevOps</span>
+          <span class="tag">Jira</span>
+          <span class="tag">Docker</span>
+          <span class="tag">RxJS</span>
+          <span class="tag">Micro Frontend</span>
+          <span class="tag">JWT / BCrypt</span>
+          <span class="tag">Entity Framework</span>
+        </div>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- ═══════════════════════ OFFICE PHOTO CAROUSEL MODAL ═══════════════════════ -->
+<div class="carousel-overlay" id="carouselOverlay" role="dialog" aria-modal="true" aria-label="Office photos at Infinite Computer Solutions">
+
+  <div class="carousel-wrapper">
+
+    <!-- Header -->
+    <div class="carousel-header">
+      <div class="carousel-header-left">
+        <div class="carousel-company-dot"></div>
+        <div>
+          <div class="carousel-company-name">Infinite Computer Solutions</div>
+          <div class="carousel-company-sub">Life at the office 📸</div>
+        </div>
+      </div>
+      <button class="carousel-close" id="closeCarouselBtn" aria-label="Close">✕</button>
+    </div>
+
+    <!-- Stage -->
+    <div class="carousel-stage" id="carouselStage">
+      <!-- Slides injected by JS -->
+      <button class="carousel-btn prev" id="prevBtn" aria-label="Previous">&#8592;</button>
+      <button class="carousel-btn next" id="nextBtn" aria-label="Next">&#8594;</button>
+    </div>
+
+    <!-- Footer dots + counter -->
+    <div class="carousel-footer">
+      <div class="carousel-dots" id="carouselDots"></div>
+      <div class="carousel-counter" id="carouselCounter">1 / 1</div>
+    </div>
+
+  </div>
+
+  <div class="carousel-hint">Press ← → arrow keys to navigate &nbsp;·&nbsp; Esc to close</div>
+</div>
+
+
+<!-- ══════════════ SCRIPT — paste before </body> ══════════════ -->
+<script>
+(function () {
+
+  /* ═══════════════════════════════════════════════════════
+     OFFICE PHOTOS — update these paths to your real images
+     Put photos in the same folder as index.html
+     Example: 'office1.jpg', 'office2.jpg', etc.
+  ══════════════════════════════════════════════════════ */
+  var officePhotos = [
+    { src: 'office1.jpg',  caption: 'Our workspace at Infinite Computer Solutions' },
+    { src: 'office2.jpg',  caption: 'Team collaboration sessions' },
+    { src: 'office3.jpg',  caption: 'Hackathon & innovation days' },
+    { src: 'office4.jpg',  caption: 'Sprint planning & stand-ups' },
+    { src: 'office5.jpg',  caption: 'Celebrating project milestones 🎉' },
+    { src: 'office6.jpg',  caption: 'Pair programming & code reviews' },
+    { src: 'office7.jpg',  caption: 'Tech talk sessions' },
+    { src: 'office8.jpg',  caption: 'Team lunch & culture moments' },
+    { src: 'office9.jpg',  caption: 'Client demo day' },
+    { src: 'office10.jpg', caption: 'BrassRing squad' },
+    { src: 'office11.jpg', caption: 'Onboarding & training' },
+    { src: 'office12.jpg', caption: 'Friday fun & team activities' },
+  ];
+
+  var current = 0;
+  var slides  = [];
+  var dots    = [];
+  var stage   = document.getElementById('carouselStage');
+  var overlay = document.getElementById('carouselOverlay');
+  var counter = document.getElementById('carouselCounter');
+  var dotsWrap = document.getElementById('carouselDots');
+
+  /* Build slides */
+  officePhotos.forEach(function (photo, i) {
+    var slide = document.createElement('div');
+    slide.className = 'carousel-slide' + (i === 0 ? ' active' : '');
+
+    /* Try to load image; if it fails show a placeholder */
+    var img = new Image();
+    img.onload = function () {
+      slide.innerHTML =
+        '<img src="' + photo.src + '" alt="' + photo.caption + '" />' +
+        '<div class="slide-caption">' + photo.caption + '</div>';
+    };
+    img.onerror = function () {
+      slide.innerHTML =
+        '<div class="slide-placeholder">' +
+          '<div class="ph-icon">🏢</div>' +
+          '<div class="ph-label">Photo ' + (i + 1) + '</div>' +
+          '<div>' + photo.caption + '</div>' +
+          '<div style="font-size:0.7rem;margin-top:6px;opacity:0.5">Add ' + photo.src + ' to your project folder</div>' +
+        '</div>';
+    };
+    img.src = photo.src;
+
+    /* Default placeholder until load resolves */
+    slide.innerHTML =
+      '<div class="slide-placeholder">' +
+        '<div class="ph-icon">🏢</div>' +
+        '<div class="ph-label">Photo ' + (i + 1) + '</div>' +
+        '<div>' + photo.caption + '</div>' +
+        '<div style="font-size:0.7rem;margin-top:6px;opacity:0.5">Add ' + photo.src + ' to your project folder</div>' +
+      '</div>';
+
+    stage.insertBefore(slide, document.getElementById('prevBtn'));
+    slides.push(slide);
+
+    /* Dot */
+    var dot = document.createElement('button');
+    dot.className = 'c-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to photo ' + (i + 1));
+    dot.addEventListener('click', function () { goTo(i); });
+    dotsWrap.appendChild(dot);
+    dots.push(dot);
+  });
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    counter.textContent = (current + 1) + ' / ' + slides.length;
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', function () { goTo(current - 1); });
+  document.getElementById('nextBtn').addEventListener('click', function () { goTo(current + 1); });
+
+  /* Open */
+  document.getElementById('openCarouselBtn').addEventListener('click', function () {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    goTo(0);
+  });
+
+  /* Close */
+  function closeCarousel() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('closeCarouselBtn').addEventListener('click', closeCarousel);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeCarousel();
+  });
+
+  /* Keyboard */
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'Escape')     closeCarousel();
+  });
+
+  /* Auto-advance every 4s when open */
+  var autoTimer;
+  overlay.addEventListener('transitionend', function () {});
+  var observer = new MutationObserver(function () {
+    if (overlay.classList.contains('open')) {
+      autoTimer = setInterval(function () { goTo(current + 1); }, 4000);
+    } else {
+      clearInterval(autoTimer);
+    }
+  });
+  observer.observe(overlay, { attributes: true, attributeFilter: ['class'] });
+
+  /* Update counter on load */
+  counter.textContent = '1 / ' + slides.length;
+
+})();
+</script>
 
   <!-- ═══════════════════════ ACHIEVEMENTS ═══════════════════════ -->
   <section id="achievements">
