@@ -705,7 +705,677 @@ var officePhotos = [
 
 })();
 </script>
+<style>
 
+/* ── SECTION BASE ── */
+#education {
+  padding: 90px 0;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle grid background */
+#education::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,86,219,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,86,219,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* ── LAYOUT ── */
+.edu-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+  position: relative;
+}
+@media (max-width: 860px) {
+  .edu-layout { grid-template-columns: 1fr; gap: 48px; }
+}
+
+/* ── COLUMN HEADERS ── */
+.edu-col-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.edu-col-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1a56db, #4d96ff);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 1rem;
+  flex-shrink: 0;
+}
+.edu-col-title {
+  font-size: 1rem; font-weight: 700;
+  color: #1a1f2e; letter-spacing: 0.3px;
+}
+.edu-col-sub {
+  font-size: 0.75rem; color: #6b7394;
+  margin-top: 1px;
+}
+
+/* ── EDUCATION CARD ── */
+.edu-card {
+  background: #fff;
+  border: 1px solid #e4e7f0;
+  border-radius: 18px;
+  padding: 28px 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+  cursor: default;
+  margin-bottom: 20px;
+}
+.edu-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 4px;
+  background: linear-gradient(90deg, #1a56db, #4d96ff);
+  border-radius: 18px 18px 0 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.edu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(26,86,219,0.1);
+  border-color: rgba(26,86,219,0.2);
+}
+.edu-card:hover::before { opacity: 1; }
+
+/* Card top row */
+.edu-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.edu-inst-logo {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border: 1px solid #bfdbfe;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.edu-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.edu-badge.completed {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+.edu-badge.ongoing {
+  background: #eff6ff;
+  color: #1a56db;
+  border: 1px solid #bfdbfe;
+  animation: badge-pulse 2.5s infinite;
+}
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(26,86,219,0.15); }
+  50%       { box-shadow: 0 0 0 5px rgba(26,86,219,0); }
+}
+
+/* Card content */
+.edu-degree {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1f2e;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+.edu-institution {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1a56db;
+  margin-bottom: 2px;
+}
+.edu-location {
+  font-size: 0.78rem;
+  color: #6b7394;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+/* Divider */
+.edu-divider {
+  height: 1px;
+  background: linear-gradient(90deg, #e4e7f0, transparent);
+  margin: 14px 0;
+}
+
+/* Meta row */
+.edu-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.edu-meta-chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #f8f9fc;
+  border: 1px solid #e4e7f0;
+  border-radius: 8px;
+  padding: 5px 11px;
+  font-size: 0.77rem;
+  color: #4a5568;
+}
+.edu-meta-chip i {
+  color: #1a56db;
+  font-size: 0.75rem;
+}
+.edu-meta-chip strong {
+  color: #1a1f2e;
+  font-weight: 700;
+}
+
+/* Subjects list */
+.edu-subjects-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6b7394;
+  margin-bottom: 9px;
+}
+.edu-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.edu-subject-tag {
+  background: #eff6ff;
+  color: #1a56db;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+}
+.edu-subject-tag:hover {
+  background: #dbeafe;
+  transform: translateY(-1px);
+}
+
+/* ── HIGHLIGHT STAT STRIP ── */
+.edu-stat-strip {
+  display: flex;
+  gap: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e4e7f0;
+  margin-top: 16px;
+}
+.edu-stat-item {
+  flex: 1;
+  padding: 12px 8px;
+  text-align: center;
+  background: #f8f9fc;
+  border-right: 1px solid #e4e7f0;
+  transition: background 0.2s;
+}
+.edu-stat-item:last-child { border-right: none; }
+.edu-stat-item:hover { background: #eff6ff; }
+.edu-stat-val {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1a56db;
+  display: block;
+  line-height: 1;
+}
+.edu-stat-lbl {
+  font-size: 0.67rem;
+  color: #6b7394;
+  margin-top: 3px;
+  display: block;
+  font-weight: 500;
+}
+
+/* ── SCHOOL CARD (12th / 10th) ── */
+.school-card {
+  background: #fff;
+  border: 1px solid #e4e7f0;
+  border-radius: 14px;
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.school-card::after {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(180deg, #1a56db, #4d96ff);
+  border-radius: 3px 0 0 3px;
+}
+.school-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(26,86,219,0.09);
+  border-color: rgba(26,86,219,0.2);
+}
+.school-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border: 1px solid #bfdbfe;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.school-name {
+  font-size: 0.9rem; font-weight: 700; color: #1a1f2e;
+  line-height: 1.3;
+}
+.school-board {
+  font-size: 0.75rem; color: #1a56db; font-weight: 600;
+  margin-top: 2px;
+}
+.school-year {
+  font-size: 0.72rem; color: #6b7394; margin-top: 1px;
+}
+.school-percent {
+  margin-left: auto;
+  text-align: right;
+  flex-shrink: 0;
+}
+.school-percent strong {
+  display: block;
+  font-size: 1.15rem; font-weight: 800; color: #1a56db;
+  line-height: 1;
+}
+.school-percent span {
+  font-size: 0.7rem; color: #6b7394;
+}
+
+/* ── CERTIFICATIONS PLACEHOLDER ── */
+.cert-coming-soon {
+  border: 2px dashed #bfdbfe;
+  border-radius: 14px;
+  padding: 32px 24px;
+  text-align: center;
+  background: linear-gradient(135deg, #f8faff, #eff6ff);
+  color: #6b7394;
+}
+.cert-cs-icon {
+  font-size: 2.2rem; margin-bottom: 10px;
+  opacity: 0.5;
+}
+.cert-cs-title {
+  font-size: 0.92rem; font-weight: 700; color: #1a56db;
+  margin-bottom: 6px;
+}
+.cert-cs-desc {
+  font-size: 0.8rem; color: #6b7394; line-height: 1.6;
+}
+.cert-cs-chips {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  justify-content: center; margin-top: 14px;
+}
+.cert-cs-chip {
+  background: #fff; border: 1px solid #bfdbfe;
+  border-radius: 20px; padding: 4px 12px;
+  font-size: 0.72rem; font-weight: 600; color: #1a56db;
+  opacity: 0.7;
+}
+
+/* ── FLOATING DEGREE BADGE ── */
+.degree-float-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #1a56db, #4d96ff);
+  color: #fff;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+</style>
+
+<!-- ══════════ HTML ══════════ -->
+<!-- Add this section in your index.html after #achievements or wherever fits -->
+<!-- Also add the nav link:  <li><a href="#education" class="nav-link">Education</a></li> -->
+
+<section id="education" class="section">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <p class="section-label">Academic background</p>
+      <h2 class="section-title">Education</h2>
+    </div>
+
+    <div class="edu-layout">
+
+      <!-- ═══ LEFT: Degree + Schooling ═══ -->
+      <div>
+        <div class="edu-col-label reveal">
+          <div class="edu-col-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div>
+            <div class="edu-col-title">Academic Qualifications</div>
+            <div class="edu-col-sub">Degree &amp; Schooling</div>
+          </div>
+        </div>
+
+        <!-- B.Tech Card -->
+        <div class="edu-card reveal delay-1">
+          <div class="edu-card-top">
+            <div class="edu-inst-logo">🎓</div>
+            <span class="edu-badge completed">✓ Completed</span>
+          </div>
+
+          <div class="degree-float-badge">
+            <i class="fas fa-star"></i> B.Tech — Computer Science &amp; Engineering
+          </div>
+
+          <div class="edu-degree">Bachelor of Technology<br/>Computer Science &amp; Engineering</div>
+          <div class="edu-institution">
+            <!-- ⬇ UPDATE: Replace with your actual college name -->
+            Your College Name Here
+          </div>
+          <div class="edu-location">
+            <i class="fas fa-map-marker-alt" style="font-size:0.7rem;color:#1a56db;"></i>
+            <!-- ⬇ UPDATE: Your college city, state -->
+            City, Telangana, India
+          </div>
+
+          <div class="edu-divider"></div>
+
+          <div class="edu-meta">
+            <div class="edu-meta-chip">
+              <i class="fas fa-calendar-alt"></i>
+              <!-- ⬇ UPDATE: Your actual years -->
+              <span><strong>2018 – 2022</strong></span>
+            </div>
+            <div class="edu-meta-chip">
+              <i class="fas fa-award"></i>
+              <!-- ⬇ UPDATE: Your actual CGPA/percentage -->
+              <span>CGPA <strong>7.8 / 10</strong></span>
+            </div>
+            <div class="edu-meta-chip">
+              <i class="fas fa-book"></i>
+              <span>4-Year Full Time</span>
+            </div>
+          </div>
+
+          <div class="edu-subjects-label">Key Subjects</div>
+          <div class="edu-subjects">
+            <span class="edu-subject-tag">Data Structures</span>
+            <span class="edu-subject-tag">DBMS</span>
+            <span class="edu-subject-tag">OOP with Java</span>
+            <span class="edu-subject-tag">Operating Systems</span>
+            <span class="edu-subject-tag">Computer Networks</span>
+            <span class="edu-subject-tag">Software Engineering</span>
+            <span class="edu-subject-tag">Web Technologies</span>
+            <span class="edu-subject-tag">Design Patterns</span>
+          </div>
+
+          <div class="edu-stat-strip">
+            <div class="edu-stat-item">
+              <span class="edu-stat-val">4</span>
+              <span class="edu-stat-lbl">Years</span>
+            </div>
+            <div class="edu-stat-item">
+              <!-- ⬇ UPDATE: Your semester count -->
+              <span class="edu-stat-val">8</span>
+              <span class="edu-stat-lbl">Semesters</span>
+            </div>
+            <div class="edu-stat-item">
+              <!-- ⬇ UPDATE: Your CGPA or % -->
+              <span class="edu-stat-val">7.8</span>
+              <span class="edu-stat-lbl">CGPA</span>
+            </div>
+            <div class="edu-stat-item">
+              <span class="edu-stat-val">2022</span>
+              <span class="edu-stat-lbl">Graduated</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12th -->
+        <div class="school-card reveal delay-2">
+          <div class="school-icon">📚</div>
+          <div>
+            <div class="school-name">
+              <!-- ⬇ UPDATE: Your 12th school name -->
+              Your Inter College / Jr. College
+            </div>
+            <div class="school-board">MPC — Math, Physics, Chemistry &nbsp;·&nbsp; State Board / CBSE</div>
+            <!-- ⬇ UPDATE: Your year -->
+            <div class="school-year">Class XII &nbsp;·&nbsp; 2017 – 2018</div>
+          </div>
+          <div class="school-percent">
+            <!-- ⬇ UPDATE: Your actual percentage -->
+            <strong>82%</strong>
+            <span>Score</span>
+          </div>
+        </div>
+
+        <!-- 10th -->
+        <div class="school-card reveal delay-3">
+          <div class="school-icon">🏫</div>
+          <div>
+            <div class="school-name">
+              <!-- ⬇ UPDATE: Your 10th school name -->
+              Your High School Name
+            </div>
+            <div class="school-board">SSC &nbsp;·&nbsp; Telangana State Board</div>
+            <!-- ⬇ UPDATE: Your year -->
+            <div class="school-year">Class X &nbsp;·&nbsp; 2015 – 2016</div>
+          </div>
+          <div class="school-percent">
+            <!-- ⬇ UPDATE: Your actual percentage -->
+            <strong>88%</strong>
+            <span>Score</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ═══ RIGHT: Certifications + Learning ═══ -->
+      <div>
+        <div class="edu-col-label reveal">
+          <div class="edu-col-icon" style="background: linear-gradient(135deg, #0f766e, #14b8a6);">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div>
+            <div class="edu-col-title">Certifications &amp; Learning</div>
+            <div class="edu-col-sub">Professional development</div>
+          </div>
+        </div>
+
+        <!-- ── Active certifications (uncomment & fill when you have them) ── -->
+        <!--
+        <div class="edu-card reveal delay-1" style="border-color: rgba(14,165,233,0.25);">
+          <div class="edu-card-top">
+            <div class="edu-inst-logo">☁️</div>
+            <span class="edu-badge completed">✓ Certified</span>
+          </div>
+          <div class="edu-degree">AZ-900: Microsoft Azure Fundamentals</div>
+          <div class="edu-institution" style="color:#0ea5e9;">Microsoft</div>
+          <div class="edu-meta" style="margin-top:10px;">
+            <div class="edu-meta-chip"><i class="fas fa-calendar-alt"></i><span><strong>Month Year</strong></span></div>
+            <div class="edu-meta-chip"><i class="fas fa-id-card"></i><span>Credential ID: XXXX</span></div>
+          </div>
+        </div>
+        -->
+
+        <!-- Certifications coming soon card -->
+        <div class="cert-coming-soon reveal delay-1">
+          <div class="cert-cs-icon">🏅</div>
+          <div class="cert-cs-title">Certifications Coming Soon</div>
+          <div class="cert-cs-desc">
+            Currently preparing for professional certifications to strengthen
+            expertise in cloud and enterprise development. Expected to complete
+            by end of 2025.
+          </div>
+          <div class="cert-cs-chips">
+            <span class="cert-cs-chip">☁️ AZ-900 Azure</span>
+            <span class="cert-cs-chip">🔷 .NET Developer</span>
+            <span class="cert-cs-chip">⚡ Angular</span>
+            <span class="cert-cs-chip">🔐 Security+</span>
+          </div>
+        </div>
+
+        <!-- ── Self-Learning Timeline ── -->
+        <div style="margin-top: 28px;">
+          <div class="edu-col-label reveal delay-2" style="margin-bottom: 20px;">
+            <div class="edu-col-icon" style="background: linear-gradient(135deg, #7c3aed, #a855f7); width:36px; height:36px; font-size:0.85rem;">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div>
+              <div class="edu-col-title" style="font-size:0.9rem;">Continuous Learning</div>
+              <div class="edu-col-sub">Always levelling up</div>
+            </div>
+          </div>
+
+          <div class="learning-timeline">
+
+            <div class="ltl-item reveal delay-2">
+              <div class="ltl-dot"><i class="fab fa-angular"></i></div>
+              <div class="ltl-content">
+                <div class="ltl-title">Angular 19 Standalone Architecture</div>
+                <div class="ltl-desc">Deep-dived into signals, standalone components, micro-frontends and advanced RxJS patterns for the enterprise migration project.</div>
+                <div class="ltl-year">2024</div>
+              </div>
+            </div>
+
+            <div class="ltl-item reveal delay-3">
+              <div class="ltl-dot" style="background: linear-gradient(135deg, #0f766e, #14b8a6);"><i class="fas fa-robot"></i></div>
+              <div class="ltl-content">
+                <div class="ltl-title">AI &amp; ML Basics — Rasa NLP Framework</div>
+                <div class="ltl-desc">Studied NLP concepts and conversational AI design to build and deploy the Rasa-based job-matching chatbot from scratch.</div>
+                <div class="ltl-year">2023</div>
+              </div>
+            </div>
+
+            <div class="ltl-item reveal delay-4">
+              <div class="ltl-dot" style="background: linear-gradient(135deg, #dc2626, #f87171);"><i class="fab fa-react"></i></div>
+              <div class="ltl-content">
+                <div class="ltl-title">React &amp; Component Architecture</div>
+                <div class="ltl-desc">Self-taught React including hooks, context API, and component-driven design to contribute to the Custom Homepage Builder project.</div>
+                <div class="ltl-year">2023</div>
+              </div>
+            </div>
+
+            <div class="ltl-item reveal delay-5">
+              <div class="ltl-dot" style="background: linear-gradient(135deg, #1a56db, #4d96ff);"><i class="fas fa-shield-halved"></i></div>
+              <div class="ltl-content">
+                <div class="ltl-title">Web Security — JWT, CSRF &amp; BCrypt</div>
+                <div class="ltl-desc">Studied OWASP top-10, secure token auth flows, anti-forgery patterns, and implemented them across production APIs.</div>
+                <div class="ltl-year">2022</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ LEARNING TIMELINE STYLES ══════════ -->
+<style>
+.learning-timeline {
+  position: relative;
+  padding-left: 28px;
+}
+.learning-timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px; top: 8px; bottom: 8px; width: 2px;
+  background: linear-gradient(180deg, #1a56db 0%, #4d96ff 60%, transparent 100%);
+  border-radius: 2px;
+}
+
+.ltl-item {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  padding-bottom: 24px;
+}
+.ltl-item:last-child { padding-bottom: 0; }
+
+.ltl-dot {
+  position: absolute;
+  left: -28px;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a56db, #4d96ff);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 0.62rem;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 10px rgba(26,86,219,0.25);
+  flex-shrink: 0;
+  top: 2px;
+}
+
+.ltl-content {
+  background: #f8f9fc;
+  border: 1px solid #e4e7f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  flex: 1;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.ltl-content:hover {
+  box-shadow: 0 4px 16px rgba(26,86,219,0.08);
+  border-color: rgba(26,86,219,0.2);
+}
+
+.ltl-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1a1f2e;
+  margin-bottom: 5px;
+  line-height: 1.35;
+}
+.ltl-desc {
+  font-size: 0.78rem;
+  color: #6b7394;
+  line-height: 1.65;
+}
+.ltl-year {
+  display: inline-block;
+  margin-top: 8px;
+  background: #eff6ff;
+  color: #1a56db;
+  border: 1px solid #bfdbfe;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+</style>
   <!-- ═══════════════════════ ACHIEVEMENTS ═══════════════════════ -->
   <section id="achievements">
     <div class="container">
